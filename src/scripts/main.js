@@ -1,1 +1,5 @@
-console.log("abcd");
+buildAndAppendSearchForm();
+addParksEventListenerToSearchButton();
+addRestarauntsEventListenerToSearchButton();
+addMeetupEventListenerToSearchButton();
+addConcertEventListenerToSearchButton();
