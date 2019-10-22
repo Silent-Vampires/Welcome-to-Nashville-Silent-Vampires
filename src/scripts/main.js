@@ -1,1 +1,5 @@
-console.log("main is connected")
+buildAndAppendSearchForm();
+addParksEventListenerToSearchButton();
+addRestaurantsEventListenerToSearchButton();
+addMeetupEventListenerToSearchButton();
+addConcertEventListenerToSearchButton();

@@ -1,5 +1,0 @@
-buildAndAppendSearchForm();
-addParksEventListenerToSearchButton();
-addRestaurantsEventListenerToSearchButton();
-addMeetupEventListenerToSearchButton();
-addConcertEventListenerToSearchButton();
