@@ -46,7 +46,7 @@ const handleSearchMeet = event => {
     
   searchMeetups(inputField.value)
   .then(response => {
-    displayMeetHTML(response.meetup)
+    displayMeetupHtml(response.events)
     inputField.value = ""
   })
 }

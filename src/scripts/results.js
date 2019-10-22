@@ -63,23 +63,6 @@ const displayConcertsHTML = allCocnertsDisplay => {
   searchResultsSection.innerHTML = concertsResultsHtml
 
 
-  // For the meetup API
-const buildMeetupHtml = meetupDisplay => `
-<article>
-  <h4>${meetupDisplay.name.text}</h4>
-  <p>
-      <a href="${meetupDisplay.url}">Click here to see the restaurant</a>
-  </p>
-</article>
-`
-const displayMeetHTML = allmeetupDisplay => {
-    let meetupResultHTML = ""
-    allmeetupDisplay.forEach(meetupDisplay => {
-      let meetupHTML = buildMeetupHTML(meetupDisplay)
-      meetupResultHTML += meetupHTML
-    });
 
-    const searchResultsSection = document.querySelector(".search-results")
-    searchResultsSection.innerHTML = meetupResultHTML
-  }
+
   
