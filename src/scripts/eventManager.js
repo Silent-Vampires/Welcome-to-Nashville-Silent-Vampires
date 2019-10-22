@@ -18,12 +18,20 @@ const handleSearchRest = event => {
     const inputField = document.querySelector("#restText")
     console.log("user input", inputField.value)
     
-//   searchRest(inputField.value)
-//   .then(response => {
-//     displayRestHtml(response.restaurants)
-//     inputField.value = ""
-//   })
-// }
+
+  // searchRecipes(inputField.value)
+  // .then(response => {
+  //   displayRecipeHtml(response.recipes)
+  //   inputField.value = ""
+  // })
+  searchRestaurant(inputField.value)
+  .then(response => {
+    
+    displayRestHTML(restaurant.name, response.restaurant.location.address, response.restaurant.phone_numbers)
+    inputField.value = ""
+})
+}
+
 
 const addRestaurantsEventListenerToSearchButton = () => {
   const searchButton = document.getElementById("searchButtonRestaurants")
