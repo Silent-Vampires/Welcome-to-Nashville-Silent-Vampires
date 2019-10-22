@@ -1,3 +1,5 @@
+
+// for parks API
 const buildParksHtml = parksDisplay => `
 <article>
   <h4>${parksDisplay.title}</h4>
@@ -19,6 +21,7 @@ const displayParksHTML = allParksDisplay => {
   searchResultsSection.innerHTML = parksResultsHtml
 }
 
+// for restaurants API
 const buildRestHtml = restDisplay => `
 <article>
   <h4>${restDisplay.title}</h4>
@@ -37,8 +40,9 @@ const displayRestHTML = allRestDisplay => {
     const searchResultsSection = document.querySelector(".search-results")
     searchResultsSection.innerHTML = restResultsHtml
   }
-  
-  const buildConcertsHtml = concertsDisplay => `
+
+// for concerts API
+const buildConcertsHtml = concertsDisplay => `
 <article>
   <h4>${concertsDisplay.title}</h4>
   <p>
@@ -53,7 +57,12 @@ const displayConcertsHTML = allCocnertsDisplay => {
   allConcertsDisplay.forEach(concertsDisplay => {
     let concertsHtml = buildConcertsHtml(concertsDisplay)
     concertsResultsHtml += concertsHtml
-  });
+  })}
 
   const searchResultsSection = document.querySelector(".search-results")
   searchResultsSection.innerHTML = concertsResultsHtml
+
+
+
+
+  
