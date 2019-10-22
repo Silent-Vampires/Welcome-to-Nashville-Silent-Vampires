@@ -46,9 +46,8 @@ const buildConcertsHtml = concertsDisplay =>
 `
 <article>
   <h4>${concertsDisplay.name}</h4>
-  <p>
-      <a href="${concertsDisplay.source_url}">Click here for event info</a>
-  </p>
+  <p> Date: ${concertsDisplay.dates.start.localDate}</p>
+  <p>Venue: ${concertsDisplay._embedded.venues[0].name}
 </article>
 `
 
