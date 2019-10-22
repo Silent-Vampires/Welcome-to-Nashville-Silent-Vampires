@@ -7,7 +7,7 @@ const handleSearchParks = event => {
 //     displayParksHtml(response.parks)
 //     inputField.value = ""
 //   })
-// }
+}
 
 const addParksEventListenerToSearchButton = () => {
   const searchButton = document.getElementById("searchButtonParks")
@@ -26,8 +26,8 @@ const handleSearchRest = event => {
   // })
   searchRestaurant(inputField.value)
   .then(response => {
-    
-    displayRestHTML(restaurant.name, response.restaurant.location.address, response.restaurant.phone_numbers)
+    console.log(response.restaurants[0].restaurant.location.address)
+    displayRestHTML(response.restaurants[0].restaurant.name, response.restaurants[0].restaurant.location.address, response.restaurants[0].restaurant.phone_numbers)
     inputField.value = ""
 })
 }

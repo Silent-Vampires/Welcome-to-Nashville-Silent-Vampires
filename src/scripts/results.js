@@ -57,3 +57,4 @@ const displayConcertsHTML = allCocnertsDisplay => {
 
   const searchResultsSection = document.querySelector(".search-results")
   searchResultsSection.innerHTML = concertsResultsHtml
+}
