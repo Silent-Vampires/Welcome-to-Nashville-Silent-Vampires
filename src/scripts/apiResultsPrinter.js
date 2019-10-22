@@ -42,9 +42,9 @@ const displayRestHTML = allRestDisplay => {
 }
 
 // CONCERTS
-const buildConcertsHtml = concertsDisplay =>
+const buildConcertsHtml = (concertsDisplay, count) =>
 `
-<article>
+<article id="concertResult--${count}">
   <h4>${concertsDisplay.name}</h4>
   <p> Date: ${concertsDisplay.dates.start.localDate}</p>
   <p>Venue: ${concertsDisplay._embedded.venues[0].name}
@@ -54,10 +54,12 @@ const buildConcertsHtml = concertsDisplay =>
 
 const displayConcertsHTML = allConcertsDisplay => {
   console.log(allConcertsDisplay._embedded.events, typeof allConcertsDisplay._embedded.events)
+  let counter = 1
   let concertsResultsHtml = ""
   allConcertsDisplay._embedded.events.forEach(concertsDisplay => {
-    let concertsHtml = buildConcertsHtml(concertsDisplay)
+    let concertsHtml = buildConcertsHtml(concertsDisplay, counter)
     concertsResultsHtml += concertsHtml
+    counter++
   })
   const searchResultsSection = document.querySelector("#resultsForm")
   searchResultsSection.innerHTML = concertsResultsHtml
