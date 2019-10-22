@@ -38,7 +38,6 @@ const addRestaurantsEventListenerToSearchButton = () => {
 // MEETUP
 const handleSearchMeet = event => {
     const inputField = document.querySelector("#meetText")
-    console.log("user input", inputField.value)
     
   searchMeetups(inputField.value)
   .then(response => {
