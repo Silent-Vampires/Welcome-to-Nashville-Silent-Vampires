@@ -52,11 +52,11 @@ const handleSearchConcerts = event => {
     const inputField = document.querySelector("#concertText")
     console.log("user input", inputField.value)
     
-//   searchRecipes(inputField.value)
-//   .then(response => {
-//     displayRecipeHtml(response.recipes)
-//     inputField.value = ""
-//   })
+  searchConcerts(inputField.value)
+  .then(response => {
+    displayRecipeHtml(response.recipes)
+    inputField.value = ""
+  })
 }
 
 const addConcertEventListenerToSearchButton = () => {
