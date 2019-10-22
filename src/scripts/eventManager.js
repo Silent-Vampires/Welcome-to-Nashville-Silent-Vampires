@@ -2,11 +2,11 @@ const handleSearchParks = event => {
     const inputField = document.querySelector("#parkText")
     console.log("user input", inputField.value)
 
-//   handleSearchParks(inputField.value)
-//   .then(response => {
-//     displayParksHtml(response.parks)
-//     inputField.value = ""
-//   })
+  handleSearchParks(inputField.value)
+  .then(response => {
+    displayParksHtml(response.parks)
+    inputField.value = ""
+  })
 }
 
 const addParksEventListenerToSearchButton = () => {
@@ -27,7 +27,7 @@ const handleSearchRest = event => {
   searchRestaurant(inputField.value)
   .then(response => {
     console.log(response.restaurants[0].restaurant.location.address)
-    displayRestHTML(response.restaurants[0].restaurant.name, response.restaurants[0].restaurant.location.address, response.restaurants[0].restaurant.phone_numbers)
+    displayRestHTML(response.restaurants[i].restaurant.name, response.restaurants[i].restaurant.location.address, response.restaurants[i].restaurant.phone_numbers)
     inputField.value = ""
 })
 }
@@ -39,15 +39,16 @@ const addRestaurantsEventListenerToSearchButton = () => {
 }
 
 
+// for MEETUP
 const handleSearchMeet = event => {
     const inputField = document.querySelector("#meetText")
     console.log("user input", inputField.value)
     
-//   searchMeet(inputField.value)
-//   .then(response => {
-//     displayMeetHtml(response.meetup)
-//     inputField.value = ""
-//   })
+  searchMeetups(inputField.value)
+  .then(response => {
+    displayMeetupHtml(response.events)
+    inputField.value = ""
+  })
 }
 
 const addMeetupEventListenerToSearchButton = () => {
@@ -56,16 +57,17 @@ const addMeetupEventListenerToSearchButton = () => {
 }
 
 
+// for CONCERTS
 const handleSearchConcerts = event => {
     const inputField = document.querySelector("#concertText")
     console.log("user input", inputField.value)
     
 
-//   searchConcerts(inputField.value)
-//   .then(response => {
-//     displayConcertsHtml(response.concerts)
-//     inputField.value = ""
-//   })
+  searchConcerts(inputField.value)
+  .then(response => {
+    displayConcertsHtml(response.concerts)
+    inputField.value = ""
+  })
 }
 
 const addConcertEventListenerToSearchButton = () => {
