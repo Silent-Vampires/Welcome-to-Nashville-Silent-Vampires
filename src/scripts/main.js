@@ -1,5 +1,1 @@
-buildAndAppendSearchForm();
-addParksEventListenerToSearchButton();
-addRestaurantsEventListenerToSearchButton();
-addMeetupEventListenerToSearchButton();
-addConcertEventListenerToSearchButton();
+console.log("main is connected")
