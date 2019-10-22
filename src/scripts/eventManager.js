@@ -52,6 +52,7 @@ const handleSearchConcerts = event => {
     const inputField = document.querySelector("#concertText")
     console.log("user input", inputField.value)
     
+
 //   searchConcerts(inputField.value)
 //   .then(response => {
 //     displayConcertsHtml(response.concerts)
