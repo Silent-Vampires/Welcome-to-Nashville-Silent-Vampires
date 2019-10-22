@@ -8,8 +8,8 @@ const buildAndAppendSearchForm = () => {
         </section>
 
         <section class="restSearch">
-            <input type="text" id="restText" placeholder="Restaraunts">
-            <button id = "searchButtonRestaraunts">Search</button>
+            <input type="text" id="restText" placeholder="Restaurants">
+            <button id = "searchButtonRestaurants">Search</button>
         </section>
 
         <section class="meetupSearch">
