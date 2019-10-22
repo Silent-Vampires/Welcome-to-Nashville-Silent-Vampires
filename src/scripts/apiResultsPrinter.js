@@ -31,43 +31,45 @@ const buildRestHtml = restDisplay => `
 </article>
 `
 const displayRestHTML = allRestDisplay => {
-    let restResultsHtml = ""
-    allRestDisplay.forEach(restDisplay => {
-      let restHtml = buildRestHtml(restDisplay)
-      restResultsHtml += restHtml
-    });
+  let restResultsHtml = ""
+  allRestDisplay.forEach(restDisplay => {
+    let restHtml = buildRestHtml(restDisplay)
+    restResultsHtml += restHtml
+  });
 
-    const searchResultsSection = document.querySelector(".search-results")
-    searchResultsSection.innerHTML = restResultsHtml
-  }
+  const searchResultsSection = document.querySelector(".search-results")
+  searchResultsSection.innerHTML = restResultsHtml
+}
 
 // CONCERTS
-const buildConcertsHtml = concertsDisplay => `
+const buildConcertsHtml = concertsDisplay =>
+`
 <article>
-  <h4>${concertsDisplay.title}</h4>
+  <h4>${concertsDisplay.name}</h4>
   <p>
-      <a href="${concertsDisplay.source_url}">Click here to see the park</a>
+      <a href="${concertsDisplay.source_url}">Click here for event info</a>
   </p>
 </article>
 `
 
 
-const displayConcertsHTML = allCocnertsDisplay => {
+const displayConcertsHTML = allConcertsDisplay => {
+  console.log(allConcertsDisplay._embedded.events, typeof allConcertsDisplay._embedded.events)
   let concertsResultsHtml = ""
-  allConcertsDisplay.forEach(concertsDisplay => {
+  allConcertsDisplay._embedded.events.forEach(concertsDisplay => {
     let concertsHtml = buildConcertsHtml(concertsDisplay)
     concertsResultsHtml += concertsHtml
-})
-    const searchResultsSection = document.querySelector(".search-results")
-    searchResultsSection.innerHTML = concertsResultsHtml
+  })
+  const searchResultsSection = document.querySelector("#resultsForm")
+  searchResultsSection.innerHTML = concertsResultsHtml
 }
 
 
 
-  // MEETUP
+// MEETUP
 // create an function that builds the HTML string for each meetup.
 const buildMeetupHtml = meetup => {
-    return `
+  return `
 <article>
   <h4>${meetup.name.text}</h4>
   <p>
@@ -79,16 +81,15 @@ const buildMeetupHtml = meetup => {
 
 // create a function to display meetups to the DOM
 const displayMeetupHtml = meetupArray => {
-    let meetupResultHtml = ""
-    meetupArray.forEach(meetup => {
-        const meetupHtml = buildMeetupHtml(meetup)
-        meetupResultHtml += meetupHtml
-    })
-    // then, display this to the DOM
-    const searchResultsSection = document.querySelector("#resultsForm")
-    searchResultsSection.innerHTML = meetupResultHtml
+  let meetupResultHtml = ""
+  meetupArray.forEach(meetup => {
+    const meetupHtml = buildMeetupHtml(meetup)
+    meetupResultHtml += meetupHtml
+  })
+  // then, display this to the DOM
+  const searchResultsSection = document.querySelector("#resultsForm")
+  searchResultsSection.innerHTML = meetupResultHtml
 }
 
 
 
-  

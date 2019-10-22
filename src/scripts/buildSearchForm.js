@@ -61,7 +61,8 @@ const handleSearchConcerts = event => {
 
   searchConcerts(inputField.value)
   .then(response => {
-    displayConcertsHtml(response.concerts)
+    // console.log(response)
+    displayConcertsHTML(response)
     inputField.value = ""
   })
 }
