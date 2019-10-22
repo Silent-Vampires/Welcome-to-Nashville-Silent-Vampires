@@ -11,5 +11,3 @@ const searchRestaurant = inputField => fetch(`${zomatoApiBaseURL}/search?entity_
     }
 )
     .then(response => response.json())
-
-
