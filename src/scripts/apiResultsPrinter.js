@@ -57,10 +57,11 @@ const displayConcertsHTML = allCocnertsDisplay => {
   allConcertsDisplay.forEach(concertsDisplay => {
     let concertsHtml = buildConcertsHtml(concertsDisplay)
     concertsResultsHtml += concertsHtml
-  })}
+})
+    const searchResultsSection = document.querySelector(".search-results")
+    searchResultsSection.innerHTML = concertsResultsHtml
+}
 
-  const searchResultsSection = document.querySelector(".search-results")
-  searchResultsSection.innerHTML = concertsResultsHtml
 
 
   // MEETUP
