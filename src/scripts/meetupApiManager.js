@@ -24,5 +24,5 @@ const searchMeetups = searchInput => fetch(`https://raw.githubusercontent.com/ns
 // meetupAddress = results.events[index].venue.address.address_1
 // meetupCategory = results.events[index].category.name
 
-searchMeetups();
+// searchMeetups();
 
