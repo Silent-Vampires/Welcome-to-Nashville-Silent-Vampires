@@ -55,14 +55,30 @@ const buildConcertsHtml = (concertsDisplay, count) =>
 const displayConcertsHTML = allConcertsDisplay => {
   console.log(allConcertsDisplay._embedded.events, typeof allConcertsDisplay._embedded.events)
   let counter = 1
-  let concertsResultsHtml = ""
+  // let concertsResultsHtml = ""
   allConcertsDisplay._embedded.events.forEach(concertsDisplay => {
-    let concertsHtml = buildConcertsHtml(concertsDisplay, counter)
-    concertsResultsHtml += concertsHtml
+    
+    const searchResultsSection = document.querySelector("#resultsForm")
+    
+    const titleElement = document.createElement("h4")
+    const dateElement = document.createElement("p")
+    const venueElement = document.createElement("p")
+    const saveButton = document.createElement("button")
+    saveButton.id = `save--${counter}`
+    titleElement.textContent = `${concertsDisplay.name}`
+    dateElement.textContent = `Date: ${concertsDisplay.dates.start.localDate}`
+    venueElement.textContent = `Venue: ${concertsDisplay._embedded.venues[0].name}`
+    saveButton.textContent = 'Save'
+
+    searchResultsSection.appendChild(titleElement)
+    searchResultsSection.appendChild(dateElement)
+    searchResultsSection.appendChild(venueElement)
+    searchResultsSection.appendChild(saveButton)
     counter++
+    
   })
-  const searchResultsSection = document.querySelector("#resultsForm")
-  searchResultsSection.innerHTML = concertsResultsHtml
+  
+  // searchResultsSection.innerHTML = concertsResultsHtml
 }
 
 
