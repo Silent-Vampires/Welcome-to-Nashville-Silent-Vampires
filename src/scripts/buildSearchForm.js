@@ -94,7 +94,7 @@ const buildAndAppendSearchForm = () => {
         </section>
 
         <section class="concertSearch">
-            <input type="text" id="concertText" placeholder="Concerts">
+            <input type="text" id="concertText" placeholder="Concerts by artist or genre">
             <button id = "searchButtonConcerts">Search</button>
         </section>
 

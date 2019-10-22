@@ -2,5 +2,5 @@
 
 const ticketMasterApiBaseUrl = "https://app.ticketmaster.com/discovery/v2/"
 
-const searchConcerts = searchInput => fetch(`${ticketMasterApiBaseUrl}events.json?classificationName=music&dmaId=343&keyword=${searchInput}&apikey=${ticketMasterApi}`)
+const searchConcerts = searchInput => fetch(`${ticketMasterApiBaseUrl}events.json?classificationName=music&dmaId=343&genre&keyword=${searchInput}&apikey=${ticketMasterApi}`)
     .then(response => response.json())
