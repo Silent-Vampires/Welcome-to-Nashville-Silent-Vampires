@@ -7,30 +7,42 @@ const handleSearchParks = event => {
 //     displayParksHtml(response.parks)
 //     inputField.value = ""
 //   })
-// }
+ }
 
 const addParksEventListenerToSearchButton = () => {
   const searchButton = document.getElementById("searchButtonParks")
-  searchButton.addEventListener("click", handleSearchParks)
+  searchButton.addEventListener("click", tryToFetch)
 }
 
-const handleSearchRest = event => {
-    const inputField = document.querySelector("#restText")
-    console.log("user input", inputField.value)
-    
+const tryToFetch = () => {
+ fetch (`https://data.nashville.gov/resource/74d7-b74t.json?park_name=Potters%20Field`)
+ .then(response => response.json())
+ .then(jsonedResponse=>
+   console.log(jsonedResponse));
 
-  // searchRecipes(inputField.value)
-  // .then(response => {
-  //   displayRecipeHtml(response.recipes)
-  //   inputField.value = ""
-  // })
-  searchRestaurant(inputField.value)
-  .then(response => {
-    
-    displayRestHTML(restaurant.name, response.restaurant.location.address, response.restaurant.phone_numbers)
-    inputField.value = ""
-})
 }
+
+
+
+
+// const handleSearchRest = event => {
+//     const inputField = document.querySelector("#restText")
+//     console.log("user input", inputField.value)
+   
+
+
+//   // searchRecipes(inputField.value)
+//   // .then(response => {
+//   //   displayRecipeHtml(response.recipes)
+//   //   inputField.value = ""
+//   // })
+//   searchRestaurant(inputField.value)
+//   .then(response => {
+    
+//     displayRestHTML(restaurant.name, response.restaurant.location.address, response.restaurant.phone_numbers)
+//     inputField.value = ""
+// })
+// }
 
 
 const addRestaurantsEventListenerToSearchButton = () => {
