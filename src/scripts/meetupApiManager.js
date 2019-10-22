@@ -12,10 +12,10 @@
 // this is the temporary work-around that works so that I can at least see how to access the api
 const searchMeetups = searchInput => fetch(`https://raw.githubusercontent.com/nss-cohort-36/temp-eb-api/master/search-response.json`)
 .then(r => r.json())
-.then(results => {
-    // getting the name of the FIRST event
-    console.log(results.events[0])
-    });
+// .then(results => {
+//     // getting the name of the FIRST event
+//     console.log(results.events[0])
+//     });
 
 // things that might be needed:
 // meetupName = results.events[index].name.text
