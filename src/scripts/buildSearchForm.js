@@ -1,14 +1,9 @@
 
 // PARKS
 const handleSearchParks = event => {
-  const inputField = document.querySelector("#parkText")
-  console.log("user input", inputField.value)
-
-  handleSearchParks(inputField.value)
-    .then(response => {
-      displayParksHtml(response.parks)
-      inputField.value = ""
-    })
+    const inputField = document.querySelector("#parkText")
+    console.log("user input", inputField.value)
+    fetchParkApi();
 }
 
 const addParksEventListenerToSearchButton = () => {
