@@ -59,13 +59,11 @@ const addMeetupEventListenerToSearchButton = () => {
 
 const handleSearchConcerts = () => {
   const inputField = document.querySelector("#concertText")
-  console.log("user input", inputField.value)
 
-  //Calls API search function with inputField as argument, takes returns response, and calls function to build DOM
+ //Calls API search function with inputField as argument, takes returns response, and calls function to build DOM. Will set results to No Results Found if no search results returned
 
   searchConcerts(inputField.value)
     .then(response => {
-      // console.log("hopefully booly results", typeof response._embedded.events)
       if (response.hasOwnProperty("_embedded")) {
         displayConcertsHTML(response)
       } else {

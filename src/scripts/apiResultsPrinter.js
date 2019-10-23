@@ -84,7 +84,7 @@ const displayConcertsHTML = allConcertsDisplay => {
     searchResultsSection.appendChild(venueElement)
     searchResultsSection.appendChild(saveButton)
     
-    saveButton.addEventListener("click", () => document.querySelector("#itineraryForm").innerHTML = `<h4>${concertsDisplay.name}</h4>${concertsDisplay.dates.start.localDate}`)
+    saveButton.addEventListener("click", () => document.querySelector("#concertSaved").innerHTML = `<h4>Concert:</h4> ${concertsDisplay.name} at ${concertsDisplay._embedded.venues[0].name} on ${concertsDisplay.dates.start.localDate}`)
     counter++
 
   })
