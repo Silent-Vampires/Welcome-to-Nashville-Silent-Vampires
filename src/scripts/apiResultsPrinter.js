@@ -16,13 +16,13 @@ const displayParksHTML = allParksDisplay => {
     let parksHtml = buildParksHtml(parksDisplay)
     parksResultsHtml += parksHtml
   });
-
+ 
   const searchResultsSection = document.querySelector(".search-results")
   searchResultsSection.innerHTML = parksResultsHtml
 }
 
 // RESTAURANTS
-const buildRestHtml = (restaurant, number) =>{ 
+const buildRestHtml = (restaurant) =>{ 
   console.log(restaurant.restaurant.name)
   return `
 <article>
@@ -31,7 +31,7 @@ const buildRestHtml = (restaurant, number) =>{
       <a href="${restaurant.restaurant.url}">Click here to see the restaurant</a>
 
   </p>
-  <button class="restSave--${number}">save</button>
+  <button class="restSave--">save</button>
 </article>
 `
 }
@@ -39,11 +39,11 @@ const displayRestHTML = restaurantArray=> {
   //i did this console log to make sure the information was making it to this point
   console.log(restaurantArray)
   let restResultsHtml = ""
-  let num = 1
+  // let num = 1
   restaurantArray.forEach(restaurant => {
-    let restaurantHtml = buildRestHtml(restaurant, num)
+    let restaurantHtml = buildRestHtml(restaurant)
     restResultsHtml += restaurantHtml
-    num += 1
+    // num += 1
   });
 
   const searchResultsSection = document.querySelector("#resultsForm")
