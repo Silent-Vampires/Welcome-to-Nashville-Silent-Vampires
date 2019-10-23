@@ -1,6 +1,6 @@
 
 const parkURL = "https://data.nashville.gov/resource/74d7-b74t.json";  //map the endpoint to a variable
-
+let parkELCounter=0;
 function fetchParkApi() {
   const inputField = document.querySelector("#parkText") //map the #parktext id to a variable
   console.log("user input", inputField.value) // console log the value inserted in the text field
@@ -50,11 +50,16 @@ function iterateJson(jsonfiedResponse, encodedUserInput) {
 // DOM Printer
 // *******************************************************************************
 function domPrinter (parkName, parkAddress) {
+parkELCounter++
+console.log ("Park Counter", parkELCounter)
+
 resultsContainer = document.querySelector("#resultsForm")
 resultsContainer.innerHTML += (`
-
+<div id="park-div-${parkELCounter}"> 
 <h4> Name: ${parkName} </h4>
 <p> Address: ${parkAddress}</p>
-<br>
+<button type="button" id="park-save-${parkELCounter}">SAVE</button>
+</div>
 ` )
 }
+
