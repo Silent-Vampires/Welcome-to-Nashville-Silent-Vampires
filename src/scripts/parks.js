@@ -39,6 +39,9 @@ function iterateJson(jsonfiedResponse, encodedUserInput) {
   for (i = 0; i < jsonfiedResponse.length; i++) {
     if (jsonfiedResponse[i][encodedUserInput] == "Yes") {
       console.log(jsonfiedResponse[i].park_name, jsonfiedResponse[i].mapped_location.human_address)
+      parkName = jsonfiedResponse[i].park_name
+      parkAddress = jsonfiedResponse[i].mapped_location.human_address
+      domPrinter (parkName, parkAddress);
     }
   }
 }
@@ -46,6 +49,12 @@ function iterateJson(jsonfiedResponse, encodedUserInput) {
 // *******************************************************************************
 // DOM Printer
 // *******************************************************************************
-
+function domPrinter (parkName, parkAddress) {
 resultsContainer = document.querySelector("#resultsForm")
-resultsContainer.innerHTML = ("its working")
+resultsContainer.innerHTML += (`
+
+<h4> Name: ${parkName} </h4>
+<p> Address: ${parkAddress}</p>
+<br>
+` )
+}
