@@ -131,24 +131,26 @@ const displayConcertsHTML = allConcertsDisplay => {
   allConcertsDisplay._embedded.events.forEach(concertsDisplay => {
     
     
-
+    const searchResult = document.createElement("div")
     const titleElement = document.createElement("h4")
     const dateElement = document.createElement("p")
     const venueElement = document.createElement("p")
     const saveButton = document.createElement("button")
 
+    searchResult.classList.add("searchResult")
     saveButton.id = `save--${counter}`
     titleElement.textContent = `${concertsDisplay.name}`
     dateElement.textContent = `Date: ${concertsDisplay.dates.start.localDate}`
     venueElement.textContent = `Venue: ${concertsDisplay._embedded.venues[0].name}`
     saveButton.textContent = 'Save'
 
-    searchResultsSection.appendChild(titleElement)
-    searchResultsSection.appendChild(dateElement)
-    searchResultsSection.appendChild(venueElement)
-    searchResultsSection.appendChild(saveButton)
+    searchResult.appendChild(titleElement)
+    searchResult.appendChild(dateElement)
+    searchResult.appendChild(venueElement)
+    searchResult.appendChild(saveButton)
+    searchResultsSection.appendChild(searchResult)
     
-    saveButton.addEventListener("click", () => document.querySelector("#concertSaved").innerHTML = `<h4>Concert:</h4> ${concertsDisplay.name} at ${concertsDisplay._embedded.venues[0].name} on ${concertsDisplay.dates.start.localDate}`)
+    saveButton.addEventListener("click", () => document.querySelector("#concertSaved").innerHTML = `<h4>Concert:</h4> ${concertsDisplay.name} at ${concertsDisplay._embedded.venues[0].name} on ${concertsDisplay.dates.start.localDate}</div>`)
     counter++
 
   })
