@@ -92,38 +92,56 @@ const displayConcertsHTML = allConcertsDisplay => {
 // MEETUP
 // create an function that builds the HTML string for each meetup.
 const buildMeetupHtml = (meetup, number) => {
-  return `
-<article>
-<h4>${meetup.name.text}</h4>
-<p>
-    <a href="${meetup.url}" target="_blank">${meetup.url}</a>
-</p>
-<button class="meetup save--${number}" >Save</button>
-</article>
-`
+
+  // creating the tags for a single meetup
+  const meetupContainer = document.createElement("article")
+  const meetupTitle = document.createElement("h4")
+  const websiteParagraph = document.createElement("p")
+  const websiteAnchor = document.createElement("a")
+  const saveButton = document.createElement("button")
+
+  // modifying the classes, id's, etc for each tag
+  websiteAnchor.href = `${meetup.url}` 
+  websiteAnchor.target = "_blank"
+  saveButton.id = `meetup save--${number}`
+
+  // adding the text content to each tag
+  meetupTitle.textContent = `${meetup.name.text}`
+  websiteAnchor.textContent = `${meetup.url}`
+  saveButton.textContent = "Save"
+
+  // appendChild to but websiteAnchor inside of websiteParagraph
+  websiteParagraph.appendChild(websiteAnchor)
+
+  // appendChild for all the tags to be inside meetupContainer
+  meetupContainer.appendChild(meetupTitle)
+  meetupContainer.appendChild(websiteParagraph)
+  meetupContainer.appendChild(saveButton)
+
+  return meetupContainer
 }
 
 // create a function to display meetups to the DOM
 const displayMeetupHtml = meetupArray => {
   let num = 1
-  let meetupResultHtml = ""
+  const meetupResultHtml = document.createElement("div")
   if (meetupArray.length <= 4) {
     meetupArray.forEach(meetup => {
         const meetupHtml = buildMeetupHtml(meetup, num)
-        meetupResultHtml += meetupHtml
+        meetupResultHtml.appendChild(meetupHtml)
         num += 1 
     } )
   } else {
     for (i = 0; i < 4; i++) {
       const meetupHtml = buildMeetupHtml(meetupArray[i], num)
-      meetupResultHtml += meetupHtml
+      meetupResultHtml.appendChild(meetupHtml)
       num += 1
     }
   }
 
   // then, display this to the DOM
   const searchResultsSection = document.querySelector("#resultsForm")
-  searchResultsSection.innerHTML = meetupResultHtml
+  searchResultsSection.appendChild(meetupResultHtml)
 }
 
 
