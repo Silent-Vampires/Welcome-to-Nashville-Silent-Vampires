@@ -42,6 +42,7 @@ const displayRestHTML = allRestDisplay => {
 }
 
 // CONCERTS
+
 // const buildConcertsHtml = (concertsDisplay, count) =>
 // `
 // <article id="concertResult--${count}">
@@ -52,6 +53,7 @@ const displayRestHTML = allRestDisplay => {
 // </article>
 // `
 
+//creates function that iterates thru search results, creates elements for each, adds content to each, appends them to the DOM, and add event listener to save button and populate itinerary
 
 const displayConcertsHTML = allConcertsDisplay => {
   // console.log(allConcertsDisplay._embedded.events, typeof allConcertsDisplay._embedded.events)

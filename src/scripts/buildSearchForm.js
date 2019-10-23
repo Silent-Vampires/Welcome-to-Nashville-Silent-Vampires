@@ -53,10 +53,15 @@ const addMeetupEventListenerToSearchButton = () => {
 
 
 // CONCERTS
+
+// creates function to assigned text to input field variable
+
+
 const handleSearchConcerts = event => {
     const inputField = document.querySelector("#concertText")
     console.log("user input", inputField.value)
     
+//Calls API search function with inputField as argument, takes returns response, and calls function to build DOM
 
   searchConcerts(inputField.value)
   .then(response => {

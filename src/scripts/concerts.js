@@ -1,4 +1,4 @@
-// create function to fetch tiketmaster api and convert to json
+// create function to fetch ticketmaster api and convert to js object
 
 const ticketMasterApiBaseUrl = "https://app.ticketmaster.com/discovery/v2/"
 
