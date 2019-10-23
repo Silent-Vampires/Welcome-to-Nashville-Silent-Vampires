@@ -62,4 +62,3 @@ resultsContainer.innerHTML += (`
 </div>
 ` )
 }
-
