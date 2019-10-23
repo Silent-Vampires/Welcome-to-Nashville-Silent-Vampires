@@ -39,8 +39,14 @@ function iterateJson(jsonfiedResponse, encodedUserInput) {
   for (i = 0; i < jsonfiedResponse.length; i++) {
     if (jsonfiedResponse[i][encodedUserInput] == "Yes") {
       console.log(jsonfiedResponse[i].park_name, jsonfiedResponse[i].mapped_location.human_address)
+      
     }
   }
 }
 
+// *******************************************************************************
+// printing the results to the DOM
+// *******************************************************************************
 
+const domContainer = document.querySelector("#resultsForm")
+domContainer.innerHTML="cool"

@@ -117,7 +117,4 @@ const displayMeetupHtml = meetupArray => {
 
 
 
-<<<<<<< HEAD
-=======
   
->>>>>>> gc-parks
