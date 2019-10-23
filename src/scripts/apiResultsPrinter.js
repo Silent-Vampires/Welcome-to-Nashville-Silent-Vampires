@@ -59,10 +59,13 @@ const displayConcertsHTML = allConcertsDisplay => {
   // console.log(allConcertsDisplay._embedded.events, typeof allConcertsDisplay._embedded.events)
   let counter = 1
   // let concertsResultsHtml = ""
-  
+  const searchResultsSection = document.querySelector("#resultsForm")
+
+  searchResultsSection.innerHTML = ""
+
   allConcertsDisplay._embedded.events.forEach(concertsDisplay => {
     
-    const searchResultsSection = document.querySelector("#resultsForm")
+    
 
     const titleElement = document.createElement("h4")
     const dateElement = document.createElement("p")
