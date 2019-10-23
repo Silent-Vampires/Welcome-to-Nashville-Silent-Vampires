@@ -3,13 +3,7 @@
 const handleSearchParks = event => {
     const inputField = document.querySelector("#parkText")
     console.log("user input", inputField.value)
-    fetchParkApiTest();
-
-  // handleSearchParks(inputField.value)
-  // .then(response => {
-  //   displayParksHtml(response.parks)
-  //   inputField.value = ""
-  // })
+    fetchParkApi();
 }
 
 const addParksEventListenerToSearchButton = () => {
