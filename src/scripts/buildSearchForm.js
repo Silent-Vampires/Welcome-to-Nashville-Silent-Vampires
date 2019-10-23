@@ -1,14 +1,14 @@
 
 // PARKS
 const handleSearchParks = event => {
-    const inputField = document.querySelector("#parkText")
-    console.log("user input", inputField.value)
+  const inputField = document.querySelector("#parkText")
+  console.log("user input", inputField.value)
 
   handleSearchParks(inputField.value)
-  .then(response => {
-    displayParksHtml(response.parks)
-    inputField.value = ""
-  })
+    .then(response => {
+      displayParksHtml(response.parks)
+      inputField.value = ""
+    })
 }
 
 const addParksEventListenerToSearchButton = () => {
@@ -20,12 +20,12 @@ const addParksEventListenerToSearchButton = () => {
 const handleSearchRest = event => {
   const inputField = document.querySelector("#restText")
   console.log("user input", inputField.value)
-    
+
   searchRestaurant(inputField.value)
-  .then(response => {
-    displayRestHTML(restaurant.name, response.restaurant.location.address, response.restaurant.phone_numbers)
-    inputField.value = ""
-})
+    .then(response => {
+      displayRestHTML(restaurant.name, response.restaurant.location.address, response.restaurant.phone_numbers)
+      inputField.value = ""
+    })
 }
 
 
@@ -37,13 +37,13 @@ const addRestaurantsEventListenerToSearchButton = () => {
 
 // MEETUP
 const handleSearchMeet = event => {
-    const inputField = document.querySelector("#meetText")
-    
+  const inputField = document.querySelector("#meetText")
+
   searchMeetups(inputField.value)
-  .then(response => {
-    displayMeetupHtml(response.events)
-    inputField.value = ""
-  })
+    .then(response => {
+      displayMeetupHtml(response.events)
+      inputField.value = ""
+    })
 }
 
 const addMeetupEventListenerToSearchButton = () => {
@@ -57,18 +57,23 @@ const addMeetupEventListenerToSearchButton = () => {
 // creates function to assigned text to input field variable
 
 
-const handleSearchConcerts = event => {
-    const inputField = document.querySelector("#concertText")
-    console.log("user input", inputField.value)
-    
-//Calls API search function with inputField as argument, takes returns response, and calls function to build DOM
+const handleSearchConcerts = () => {
+  const inputField = document.querySelector("#concertText")
+  console.log("user input", inputField.value)
+
+  //Calls API search function with inputField as argument, takes returns response, and calls function to build DOM
 
   searchConcerts(inputField.value)
-  .then(response => {
-    // console.log(response)
-    displayConcertsHTML(response)
-    inputField.value = ""
-  })
+    .then(response => {
+      // console.log("hopefully booly results", typeof response._embedded.events)
+      if (response.hasOwnProperty("_embedded")) {
+        displayConcertsHTML(response)
+      } else {
+        document.querySelector("#resultsForm").innerHTML = "<h4>No Results Found</h4>"
+      }
+      
+      inputField.value = ""
+    })
 }
 
 const addConcertEventListenerToSearchButton = () => {
@@ -79,7 +84,7 @@ const addConcertEventListenerToSearchButton = () => {
 
 // BUILD SEARCH FORM
 const buildAndAppendSearchForm = () => {
-    const searchForm = `
+  const searchForm = `
     <h1>Welcome to Nashville</h1>
     <h3>Search to Create Itinerary: </h3>
         <section class="parkSearch">
@@ -103,6 +108,6 @@ const buildAndAppendSearchForm = () => {
         </section>
 
     `
-    const containerDiv = document.querySelector("#searchForm")
-    containerDiv.innerHTML = searchForm
-  }
+  const containerDiv = document.querySelector("#searchForm")
+  containerDiv.innerHTML = searchForm
+}

@@ -56,6 +56,7 @@ const displayRestHTML = allRestDisplay => {
 //creates function that iterates thru search results, creates elements for each, adds content to each, appends them to the DOM, and add event listener to save button and populate itinerary
 
 const displayConcertsHTML = allConcertsDisplay => {
+  
   // console.log(allConcertsDisplay._embedded.events, typeof allConcertsDisplay._embedded.events)
   let counter = 1
   // let concertsResultsHtml = ""
@@ -82,7 +83,8 @@ const displayConcertsHTML = allConcertsDisplay => {
     searchResultsSection.appendChild(dateElement)
     searchResultsSection.appendChild(venueElement)
     searchResultsSection.appendChild(saveButton)
-    saveButton.addEventListener("click", () => document.querySelector("#itineraryForm").innerHTML = `${concertsDisplay.name}`)
+    
+    saveButton.addEventListener("click", () => document.querySelector("#itineraryForm").innerHTML = `<h4>${concertsDisplay.name}</h4>${concertsDisplay.dates.start.localDate}`)
     counter++
 
   })
