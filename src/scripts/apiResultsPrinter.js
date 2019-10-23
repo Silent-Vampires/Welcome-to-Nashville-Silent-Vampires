@@ -75,7 +75,7 @@ const displayRestHTML = restaurantArray => {
     searchResultsSection.appendChild(urlElement)
     searchResultsSection.appendChild(phoneElement)
     searchResultsSection.appendChild(saveButton)
-    saveButton.addEventListener('click', event => document.querySelector('#restSaved').innerHTML = `${restaurantArray.name}`)
+    saveButton.addEventListener('click', event => document.querySelector('#restSaved').innerHTML = `${restaurant.restaurant.name}`)
     counter ++
   })
 }
