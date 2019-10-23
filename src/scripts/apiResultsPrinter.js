@@ -141,6 +141,7 @@ const displayMeetupHtml = meetupArray => {
 
   // then, display this to the DOM
   const searchResultsSection = document.querySelector("#resultsForm")
+  searchResultsSection.innerHTML = ""
   searchResultsSection.appendChild(meetupResultHtml)
 }
 
