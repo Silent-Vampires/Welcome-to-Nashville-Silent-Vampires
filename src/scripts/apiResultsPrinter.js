@@ -92,8 +92,9 @@ const buildMeetupHtml = meetup => {
 <article>
   <h4>${meetup.name.text}</h4>
   <p>
-      <a href="${meetup.url}">Click here to see the restaurant</a>
+      <a href="${meetup.url}" target="_blank">${meetup.url}</a>
   </p>
+  <button class="save--${number}" >Save</button>
 </article>
 `
 }
