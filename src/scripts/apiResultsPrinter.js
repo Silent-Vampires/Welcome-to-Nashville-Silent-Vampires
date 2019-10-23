@@ -75,23 +75,26 @@ const displayConcertsHTML = allCocnertsDisplay => {
 
   // MEETUP
 // create an function that builds the HTML string for each meetup.
-const buildMeetupHtml = meetup => {
+const buildMeetupHtml = (meetup, number) => {
     return `
 <article>
   <h4>${meetup.name.text}</h4>
   <p>
-      <a href="${meetup.url}">Click here to see the restaurant</a>
+      <a href="${meetup.url}" target="_blank">${meetup.url}</a>
   </p>
+  <button class="save--${number}" >Save</button>
 </article>
 `
 }
 
 // create a function to display meetups to the DOM
 const displayMeetupHtml = meetupArray => {
+    let num = 1
     let meetupResultHtml = ""
     meetupArray.forEach(meetup => {
-        const meetupHtml = buildMeetupHtml(meetup)
+        const meetupHtml = buildMeetupHtml(meetup, num)
         meetupResultHtml += meetupHtml
+        num += 1 
     })
     // then, display this to the DOM
     const searchResultsSection = document.querySelector("#resultsForm")
