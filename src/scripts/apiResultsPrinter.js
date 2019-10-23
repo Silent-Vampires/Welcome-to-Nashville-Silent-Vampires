@@ -22,33 +22,63 @@ const displayParksHTML = allParksDisplay => {
 }
 
 // RESTAURANTS
-const buildRestHtml = (restaurant) =>{ 
-  console.log(restaurant.restaurant.name)
-  return `
-<article>
-  <h4>${restaurant.restaurant.name}</h4>
-  <p>
-      <a href="${restaurant.restaurant.url}">Click here to see the restaurant</a>
+// const buildRestHtml = (restaurant) =>{ 
+//   console.log(restaurant.restaurant.name)
+//   return `
+// <article>
+//   <h4>${restaurant.restaurant.name}</h4>
+//   <p>
+//       <a href="${restaurant.restaurant.url}">Click here to see the restaurant</a>
 
-  </p>
-  <button class="restSave--">save</button>
-</article>
-`
-}
-const displayRestHTML = restaurantArray=> {
-  //i did this console log to make sure the information was making it to this point
-  console.log(restaurantArray)
-  let restResultsHtml = ""
-  // let num = 1
-  restaurantArray.forEach(restaurant => {
-    let restaurantHtml = buildRestHtml(restaurant)
-    restResultsHtml += restaurantHtml
-    // num += 1
-  });
+//   </p>
+//   <button class="restSave--">save</button>
+// </article>
+// `
+// }
+// const displayRestHTML = restaurantArray=> {
+//   //i did this console log to make sure the information was making it to this point
+//   console.log(restaurantArray)
+//   let restResultsHtml = ""
+//   // let num = 1
+//   restaurantArray.forEach(restaurant => {
+//     let restaurantHtml = buildRestHtml(restaurant)
+//     restResultsHtml += restaurantHtml
+//     // num += 1
+//   });
 
-  const searchResultsSection = document.querySelector("#resultsForm")
-  searchResultsSection.innerHTML = restResultsHtml
+//   const searchResultsSection = document.querySelector("#resultsForm")
+//   searchResultsSection.innerHTML = restResultsHtml
+// }
+
+
+
+const displayRestHTML = restaurantArray => {
+  let counter = 1
+
+  restaurantArray.restaurants.forEach(restaurant => {
+    console.log(restaurantArray.restaurants, typeof restaurantArray.restaurants)
+    const searchResultsSection = document.querySelector("#resultsForm")
+
+    const titleElement = document.createElement('h4')
+    const urlElement = document.createElement('p')
+    const phoneElement = document.createElement('p')
+    const saveButton = document.createElement('button')
+
+    saveButton.id = `save--${counter}`
+    titleElement.textContent = `${restaurant.restaurants.restaurant.name}`
+    urlElement.textContent = `${restaurant.restaurants.restaurant.url}`
+    phoneElement.textContent = `${restaurant.restaurants.restaurant.phone_number}`
+    saveButton.textContent = `Save`
+
+    searchResultsSection.appendChild(titleElement)
+    searchResultsSection.appendChild(urlElement)
+    searchResultsSection.appendChild(phoneElement)
+    searchResultsSection.appendChild(saveButton)
+    saveButton.addEventListener('click', event => document.querySelector('#itineraryForm').innerHTML = `${restaurantArray.name}`)
+    counter ++
+  })
 }
+
 
 
 // CONCERTS

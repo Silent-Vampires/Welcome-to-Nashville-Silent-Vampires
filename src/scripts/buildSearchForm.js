@@ -26,7 +26,7 @@ const handleSearchRest = event => {
     //this console log is here to see what the fetch call was returning and what type of item (object) it was
     console.log(response.restaurants, typeof response)
     //I was making it to complex by adding in all the items i was trying to fetch here instead of just sending the response with the object full of arrays
-    displayRestHTML(response)
+    displayRestHTML(response.restaurants)
     inputField.value = ""
 })
 }
