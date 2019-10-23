@@ -23,16 +23,23 @@
 
 function displayParksHTML (parkName, parkAddress) {
   parkELCounter++
-  console.log ("Park Counter", parkELCounter)
+  console.log ("Park Element Counter", parkELCounter)
   
-  resultsContainer = document.querySelector("#resultsForm")
-  resultsContainer.innerHTML += (`
-  <div id="park-div-${parkELCounter}"> 
-  <h4> Name: ${parkName} </h4>
-  <p> Address: ${parkAddress}</p>
-  <button type="button" id="park-save-${parkELCounter}">SAVE</button>
-  </div>
-  ` )
+  parkResultsContainer = document.querySelector("#resultsForm")
+  const parkNameEl = document.createElement("h4")
+  const parkAddressEL = document.createElement("p")
+  const parkSaveButton = document.createElement("button")
+  parkSaveButton.id = `park-save-${parkELCounter}`
+
+  parkNameEl.textContent = `Name: ${parkName}`
+  parkAddressEL.textContent = `Address: ${parkAddress}`
+  parkSaveButton.textContent = 'Save'
+
+  parkResultsContainer.appendChild(parkNameEl)
+  parkResultsContainer.appendChild(parkAddressEL)
+  parkResultsContainer.appendChild(parkSaveButton)
+
+  parkSaveButton.addEventListener("click", () => document.querySelector("#itineraryForm").innerHTML = `PARK NAME: ${parkName}` )
   }
 
 
