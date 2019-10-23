@@ -118,6 +118,12 @@ const buildMeetupHtml = (meetup, number) => {
   meetupContainer.appendChild(websiteParagraph)
   meetupContainer.appendChild(saveButton)
 
+  // event listener for save button. This will move things to the Itinerary part of the DOM
+  saveButton.addEventListener("click", function () {
+    const apiType = saveButton.id.split(" ")[0] // targets the part of the id that says "meetup"
+    const thisMeetup = meetupTitle.innerHTML // title of the selected meetup
+  })
+
   return meetupContainer
 }
 
