@@ -1,25 +1,42 @@
 
 // PARKS
-const buildParksHtml = parksDisplay => `
-<article>
-  <h4>${parksDisplay.title}</h4>
-  <p>
-      <a href="${parksDisplay.source_url}">Click here to see the park</a>
-  </p>
-</article>
-`
+// const buildParksHtml = parksDisplay => `
+// <article>
+//   <h4>${parksDisplay.title}</h4>
+//   <p>
+//       <a href="${parksDisplay.source_url}">Click here to see the park</a>
+//   </p>
+// </article>
+// `
 
 
-const displayParksHTML = allParksDisplay => {
-  let parksResultsHtml = ""
-  allParksDisplay.forEach(parksDisplay => {
-    let parksHtml = buildParksHtml(parksDisplay)
-    parksResultsHtml += parksHtml
-  });
+// const displayParksHTML = allParksDisplay => {
+//   let parksResultsHtml = ""
+//   allParksDisplay.forEach(parksDisplay => {
+//     let parksHtml = buildParksHtml(parksDisplay)
+//     parksResultsHtml += parksHtml
+//   });
 
-  const searchResultsSection = document.querySelector(".search-results")
-  searchResultsSection.innerHTML = parksResultsHtml
-}
+//   const searchResultsSection = document.querySelector(".search-results")
+//   searchResultsSection.innerHTML = parksResultsHtml
+// }
+
+function displayParksHTML (parkName, parkAddress) {
+  parkELCounter++
+  console.log ("Park Counter", parkELCounter)
+  
+  resultsContainer = document.querySelector("#resultsForm")
+  resultsContainer.innerHTML += (`
+  <div id="park-div-${parkELCounter}"> 
+  <h4> Name: ${parkName} </h4>
+  <p> Address: ${parkAddress}</p>
+  <button type="button" id="park-save-${parkELCounter}">SAVE</button>
+  </div>
+  ` )
+  }
+
+
+
 
 // RESTAURANTS
 const buildRestHtml = restDisplay => `

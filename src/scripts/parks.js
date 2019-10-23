@@ -41,24 +41,7 @@ function iterateJson(jsonfiedResponse, encodedUserInput) {
       console.log(jsonfiedResponse[i].park_name, jsonfiedResponse[i].mapped_location.human_address)
       parkName = jsonfiedResponse[i].park_name
       parkAddress = jsonfiedResponse[i].mapped_location.human_address
-      domPrinter (parkName, parkAddress);
+      displayParksHTML (parkName, parkAddress);
     }
   }
-}
-
-// *******************************************************************************
-// DOM Printer
-// *******************************************************************************
-function domPrinter (parkName, parkAddress) {
-parkELCounter++
-console.log ("Park Counter", parkELCounter)
-
-resultsContainer = document.querySelector("#resultsForm")
-resultsContainer.innerHTML += (`
-<div id="park-div-${parkELCounter}"> 
-<h4> Name: ${parkName} </h4>
-<p> Address: ${parkAddress}</p>
-<button type="button" id="park-save-${parkELCounter}">SAVE</button>
-</div>
-` )
 }
