@@ -42,24 +42,26 @@ const displayRestHTML = allRestDisplay => {
 }
 
 // CONCERTS
-const buildConcertsHtml = (concertsDisplay, count) =>
-`
-<article id="concertResult--${count}">
-  <h4>${concertsDisplay.name}</h4>
-  <p> Date: ${concertsDisplay.dates.start.localDate}</p>
-  <p>Venue: ${concertsDisplay._embedded.venues[0].name}
-</article>
-`
+// const buildConcertsHtml = (concertsDisplay, count) =>
+// `
+// <article id="concertResult--${count}">
+// const buildConcertsHtml = (concertsDisplay, count) =>
+// <h4>${concertsDisplay.name}</h4>
+//   <p> Date: ${concertsDisplay.dates.start.localDate}</p>
+//   <p>Venue: ${concertsDisplay._embedded.venues[0].name}
+// </article>
+// `
 
 
 const displayConcertsHTML = allConcertsDisplay => {
   // console.log(allConcertsDisplay._embedded.events, typeof allConcertsDisplay._embedded.events)
   let counter = 1
   // let concertsResultsHtml = ""
+  
   allConcertsDisplay._embedded.events.forEach(concertsDisplay => {
     
     const searchResultsSection = document.querySelector("#resultsForm")
-    
+
     const titleElement = document.createElement("h4")
     const dateElement = document.createElement("p")
     const venueElement = document.createElement("p")
