@@ -34,7 +34,6 @@ const buildRestHtml = (restaurant, number) =>{
   <button class="restSave--${number}">save</button>
 </article>
 `
-<<<<<<< HEAD
 }
 const displayRestHTML = restaurantArray=> {
   //i did this console log to make sure the information was making it to this point
@@ -51,18 +50,6 @@ const displayRestHTML = restaurantArray=> {
   searchResultsSection.innerHTML = restResultsHtml
 }
 
-=======
-const displayRestHTML = allRestDisplay => {
-  let restResultsHtml = ""
-  allRestDisplay.forEach(restDisplay => {
-    let restHtml = buildRestHtml(restDisplay)
-    restResultsHtml += restHtml
-  });
-
-  const searchResultsSection = document.querySelector(".search-results")
-  searchResultsSection.innerHTML = restResultsHtml
-}
->>>>>>> master
 
 // CONCERTS
 
@@ -117,33 +104,24 @@ const displayConcertsHTML = allConcertsDisplay => {
 const buildMeetupHtml = (meetup, number) => {
   return `
 <article>
-<h4>${meetup.name.text}</h4>
-<p>
-    <a href="${meetup.url}" target="_blank">${meetup.url}</a>
-</p>
-<button class="meetup save--${number}" >Save</button>
+  <h4>${meetup.name.text}</h4>
+  <p>
+      <a href="${meetup.url}" target="_blank">${meetup.url}</a>
+  </p>
+  <button class="save--${number}" >Save</button>
 </article>
 `
 }
 
 // create a function to display meetups to the DOM
 const displayMeetupHtml = meetupArray => {
-  let num = 1
   let meetupResultHtml = ""
-  if (meetupArray.length <= 4) {
-    meetupArray.forEach(meetup => {
-        const meetupHtml = buildMeetupHtml(meetup, num)
-        meetupResultHtml += meetupHtml
-        num += 1 
-    } )
-  } else {
-    for (i = 0; i < 4; i++) {
-      const meetupHtml = buildMeetupHtml(meetupArray[i], num)
-      meetupResultHtml += meetupHtml
-      num += 1
-    }
-  }
-
+  let num = 1
+  meetupArray.forEach(meetup => {
+    const meetupHtml = buildMeetupHtml(meetup, num)
+    meetupResultHtml += meetupHtml
+    num =+ 1
+  })
   // then, display this to the DOM
   const searchResultsSection = document.querySelector("#resultsForm")
   searchResultsSection.innerHTML = meetupResultHtml
