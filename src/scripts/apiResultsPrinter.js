@@ -31,7 +31,7 @@ const buildRestHtml = (restaurant, number) =>{
       <a href="${restaurant.restaurant.url}">Click here to see the restaurant</a>
 
   </p>
-  <button class="save--${number}">save</button>
+  <button class="restSave--${number}">save</button>
 </article>
 `
 }
@@ -49,6 +49,7 @@ const displayRestHTML = restaurantArray=> {
   const searchResultsSection = document.querySelector("#resultsForm")
   searchResultsSection.innerHTML = restResultsHtml
 }
+
 
 // CONCERTS
 const buildConcertsHtml = concertsDisplay => `
