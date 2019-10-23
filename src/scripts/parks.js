@@ -6,17 +6,17 @@ function fetchParkApi() {
   console.log("user input", inputField.value) // console log the value inserted in the text field
   const inputFieldValue = inputField.value;
   // *******************************************************************************
-  /// idiot proof feature that style the user input to match the json objects replacing uppercase letters with lowercase letters and spaces/dashes with underscore
+  /// idiot proof feature that style the user's input to match the json objects, replacing uppercase letters with lowercase letters and spaces/dashes with underscore
   // *******************************************************************************
   const capitalizedArr = []; // initializing an empty array. the styled user input will be pushed here
   for (let i = 0; i < inputFieldValue.length; i++) { //looping through the string characters
     if (inputFieldValue[i] === " " || inputFieldValue[i] === "-") {
-      capitalizedArr.push("_")
-    capitalizedArr.push(inputFieldValue[i + 1].toLowerCase())
-    i++
+      capitalizedArr.push("_") ////  push underscore instead of space or dash
+    capitalizedArr.push(inputFieldValue[i + 1].toLowerCase()) // push push push
+    i++ //
     console.log(capitalizedArr)
   } else {
-    capitalizedArr.push(inputFieldValue[i].toLowerCase())
+    capitalizedArr.push(inputFieldValue[i].toLowerCase()) // push push push
     console.log(capitalizedArr)
   }
   capitalizedString = capitalizedArr.join("")
