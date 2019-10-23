@@ -3,3 +3,4 @@ addParksEventListenerToSearchButton();
 addRestaurantsEventListenerToSearchButton();
 addMeetupEventListenerToSearchButton();
 addConcertEventListenerToSearchButton();
+buildItinerary();

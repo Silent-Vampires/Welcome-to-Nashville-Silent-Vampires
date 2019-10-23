@@ -51,12 +51,13 @@ const displayParksHTML = allParksDisplay => {
 // }
 
 
+//restaurant 2.0
 
 const displayRestHTML = restaurantArray => {
   let counter = 1
 
-  restaurantArray.restaurants.forEach(restaurant => {
-    console.log(restaurantArray.restaurants, typeof restaurantArray.restaurants)
+  restaurantArray.forEach(restaurant => {
+    // console.log(restaurantArray)
     const searchResultsSection = document.querySelector("#resultsForm")
 
     const titleElement = document.createElement('h4')
@@ -65,9 +66,9 @@ const displayRestHTML = restaurantArray => {
     const saveButton = document.createElement('button')
 
     saveButton.id = `save--${counter}`
-    titleElement.textContent = `${restaurant.restaurants.restaurant.name}`
-    urlElement.textContent = `${restaurant.restaurants.restaurant.url}`
-    phoneElement.textContent = `${restaurant.restaurants.restaurant.phone_number}`
+    titleElement.textContent = `${restaurant.restaurant.name}`
+    urlElement.textContent = `${restaurant.restaurant.location.address}`
+    phoneElement.textContent = `${restaurant.restaurant.phone_numbers}`
     saveButton.textContent = `Save`
 
     searchResultsSection.appendChild(titleElement)
