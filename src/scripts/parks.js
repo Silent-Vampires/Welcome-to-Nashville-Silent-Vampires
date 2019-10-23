@@ -43,4 +43,9 @@ function iterateJson(jsonfiedResponse, encodedUserInput) {
   }
 }
 
+// *******************************************************************************
+// DOM Printer
+// *******************************************************************************
 
+resultsContainer = document.querySelector("#resultsForm")
+resultsContainer.innerHTML = ("its working")
