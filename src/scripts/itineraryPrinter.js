@@ -3,10 +3,10 @@ const buildItinerary = () => {
     const itineraryDisplay = `
     <h2>Itinerary</h2>
     <section class="itineraryForm">
-        <div id="parkSaved"></div>
-        <div id="restSaved"></div>
-        <div id="meetSaved"></div>
-        <div id="concertSaved"></div>
+        <div class="itineraryFinal" id="parkSaved"></div>
+        <div class="itineraryFinal" id="restSaved"></div>
+        <div class="itineraryFinal" id="meetSaved"></div>
+        <div class="itineraryFinal" id="concertSaved"></div>
     </section>
     `
     savedDivs.innerHTML = itineraryDisplay;
