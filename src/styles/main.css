@@ -39,3 +39,22 @@ section {
     border-radius: 22px;
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
 }
+
+.itineraryForm {
+    border: 5px solid white;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 20px;
+    text-align: center;
+    color: #fff;
+	background: linear-gradient(45deg, red, blue);
+    background-size: 400% 400%;
+    animation-duration: 3s;
+    animation-name: color-change;
+}
+   
+@keyframes color-change {
+    from {background-color: red;}
+    to {background-color: blue;}
+  }
+
