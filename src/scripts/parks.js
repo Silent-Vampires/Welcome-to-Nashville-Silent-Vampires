@@ -4,7 +4,6 @@ let parkELCounter=0;
 
 function fetchParkApi() {
   document.querySelector("#resultsForm").innerHTML = "" // reseting the search results container on every new search
-
   const inputField = document.querySelector("#parkText") //map the #parktext id to a variable
   console.log("user input", inputField.value) // console log the value inserted in the text field
   const inputFieldValue = inputField.value;
@@ -40,12 +39,14 @@ fetch(`${parkURL}`)// fetch endpoint
 // iterating through the json response and looking for the entered amenity
 // *******************************************************************************
 function iterateJson(jsonfiedResponse, encodedUserInput) {
-  for (i = 0; i < jsonfiedResponse.length; i++) {
-    if (jsonfiedResponse[i][encodedUserInput] == "Yes") {
-      console.log(jsonfiedResponse[i].park_name, jsonfiedResponse[i].mapped_location.human_address)
-      parkName = jsonfiedResponse[i].park_name
-      parkAddress = jsonfiedResponse[i].mapped_location.human_address
-      displayParksHTML (parkName, parkAddress);
+      for (i = 0; i < jsonfiedResponse.length; i++) {
+      if (jsonfiedResponse[i][encodedUserInput] == "Yes") {
+        console.log(jsonfiedResponse[i].park_name, jsonfiedResponse[i].mapped_location.human_address)
+        parkName = jsonfiedResponse[i].park_name
+        parkAddress = jsonfiedResponse[i].mapped_location.human_address
+        displayParksHTML (parkName, parkAddress);
+      }else {
+        document.querySelector("#resultsForm").innerHTML="No Results"
+     }
     }
   }
-}
