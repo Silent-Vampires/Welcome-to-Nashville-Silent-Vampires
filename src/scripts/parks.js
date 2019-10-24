@@ -4,6 +4,7 @@ let parkELCounter=0;
 
 function fetchParkApi() {
   document.querySelector("#resultsForm").innerHTML = "" // reseting the search results container on every new search
+  
   const inputField = document.querySelector("#parkText") //map the #parktext id to a variable
   console.log("user input", inputField.value) // console log the value inserted in the text field
   const inputFieldValue = inputField.value;
