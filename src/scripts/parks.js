@@ -1,6 +1,7 @@
 
 const parkURL = "https://data.nashville.gov/resource/74d7-b74t.json";  //map the endpoint to a variable
 let parkELCounter=0;
+let amenityCounter=0;
 
 function fetchParkApi() {
   document.querySelector("#resultsForm").innerHTML = "" // reseting the search results container on every new search
@@ -39,17 +40,17 @@ fetch(`${parkURL}`)// fetch endpoint
 // iterating through the json response and looking for the entered amenity
 // *******************************************************************************
 function iterateJson(jsonfiedResponse, encodedUserInput) {
+  
       for (i = 0; i < jsonfiedResponse.length; i++) {
       if (jsonfiedResponse[i][encodedUserInput] == "Yes") {
+        amenityCounter ++
         console.log(jsonfiedResponse[i].park_name, jsonfiedResponse[i].mapped_location.human_address)
         parkName = jsonfiedResponse[i].park_name
         parkAddress = jsonfiedResponse[i].mapped_location.human_address
         displayParksHTML (parkName, parkAddress);
       }
-      
-    //   else {
-    //     document.querySelector("#resultsForm").innerHTML="No Results"
-    //  }
-    
     }
+     if (amenityCounter===0){
+      document.querySelector("#resultsForm").innerHTML="No Results"
+     }
   }

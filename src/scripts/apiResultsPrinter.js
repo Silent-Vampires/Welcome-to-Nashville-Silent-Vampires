@@ -5,18 +5,22 @@ let tempArr = []
 let tempStr =""
 let styledParkAddress =""
 
+
 // ********************************************************************************************************
 // helper function to deal with the unstyled json response string
 // ********************************************************************************************************
+
 function parkAddressStyler (parkAddress){ 
   
   let tempStr=  parkAddress
   console.log(tempStr, parkAddress)
   for (let i=0; i<parkAddress.length; i++){
-    if (tempStr[i] === "{" || tempStr[i] === "}"  || tempStr[i] === `"`) { // replacing the weird charachters with spaces
+    if (tempStr[i] === "{" || tempStr[i] === "}"  || tempStr[i] === `"`) {
       tempArr.push(" ")
+      // debugger
     console.log(tempArr)
   } else {
+    // debugger
     tempArr.push(tempStr[i]) 
     console.log(tempArr)
   }
@@ -25,9 +29,9 @@ function parkAddressStyler (parkAddress){
   tempArr=[]
   tempStr=""
   console.log(styledParkAddress)
-  return styledParkAddress.replace("address", "") //eliminating the unstyled "address:"
+  return styledParkAddress.replace("address", "")
+   
   }
-
  // ********************************************************************************************************
 // dynamically populating search result to the dom by creating dom elements and append them as childs
 // *********************************************************************************************************
@@ -35,26 +39,34 @@ function displayParksHTML (parkName, parkAddress) {
   parkELCounter++
   console.log ("Park Element Counter", parkELCounter)
 
-  let returnedStyledParkAddress = parkAddressStyler (parkAddress) // calling the helper function to style the 'human_address' weird json response
+  let returnedStyledParkAddress = parkAddressStyler (parkAddress)
+  
 
-// building the dom object here
   parkResultsContainer = document.querySelector("#resultsForm")
+
+  const parkDivEl = document.createElement("div")
   const parkNameEl = document.createElement("h4")
   const parkAddressEL = document.createElement("p")
   const parkSaveButton = document.createElement("button")
+
+  parkDivEl.classList.add("searchResult")
+
   parkSaveButton.id = `park-save-${parkELCounter}`
 
   parkNameEl.textContent = `Name: ${parkName}`
   parkAddressEL.textContent = `Address: ${returnedStyledParkAddress}`
   parkSaveButton.textContent = 'Save'
 
-  parkResultsContainer.appendChild(parkNameEl)
-  parkResultsContainer.appendChild(parkAddressEL)
-  parkResultsContainer.appendChild(parkSaveButton)
+  parkDivEl.appendChild(parkNameEl)
+  parkDivEl.appendChild(parkAddressEL)
+  parkDivEl.appendChild(parkSaveButton)
 
-  // adding the event listener to the just added save button here and appending the new itinerary
-  parkSaveButton.addEventListener("click", () => document.querySelector("#itineraryForm").innerHTML += `Park: ${parkName}` )
+  parkResultsContainer.appendChild(parkDivEl)
+
+  parkSaveButton.addEventListener("click", () => document.querySelector("#parkSaved").innerHTML = `PARK NAME: ${parkName}` )
   }
+
+
 // *********************************************************************************************************
 
 // RESTAURANTS
