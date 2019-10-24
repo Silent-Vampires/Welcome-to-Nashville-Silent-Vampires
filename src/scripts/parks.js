@@ -51,6 +51,6 @@ function iterateJson(jsonfiedResponse, encodedUserInput) {
       }
     }
      if (amenityCounter===0){
-      document.querySelector("#resultsForm").innerHTML="<h2>No Results</h2>"
+      document.querySelector("#resultsForm").innerHTML="<h2>No Results Found</h2>"
      }
   }

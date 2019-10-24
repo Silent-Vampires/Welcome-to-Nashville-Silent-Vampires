@@ -29,7 +29,7 @@ const handleSearchRest = event => {
     if(response.results_found > 0) {
     displayRestHTML(response.restaurants)
     } else {
-      document.querySelector('#resultsForm').innerHTML = "<h4>No Results Found</h4>"
+      document.querySelector('#resultsForm').innerHTML = "<h2>No Results Found</h2>"
     }
     inputField.value = ""
 })
@@ -77,7 +77,7 @@ const handleSearchConcerts = () => {
       if (response.hasOwnProperty("_embedded")) {
         displayConcertsHTML(response)
       } else {
-        document.querySelector("#resultsForm").innerHTML = "<h4>No Results Found</h4>"
+        document.querySelector("#resultsForm").innerHTML = "<h2>No Results Found</h2>"
       }
       
       inputField.value = ""
