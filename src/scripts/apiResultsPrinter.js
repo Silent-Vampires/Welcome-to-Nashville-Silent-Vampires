@@ -1,25 +1,5 @@
 
 // PARKS
-// const buildParksHtml = parksDisplay => `
-// <article>
-//   <h4>${parksDisplay.title}</h4>
-//   <p>
-//       <a href="${parksDisplay.source_url}">Click here to see the park</a>
-//   </p>
-// </article>
-// `
-
-
-// const displayParksHTML = allParksDisplay => {
-//   let parksResultsHtml = ""
-//   allParksDisplay.forEach(parksDisplay => {
-//     let parksHtml = buildParksHtml(parksDisplay)
-//     parksResultsHtml += parksHtml
-//   });
-
-//   const searchResultsSection = document.querySelector(".search-results")
-//   searchResultsSection.innerHTML = parksResultsHtml
-// }
 
 let tempArr = []
 let tempStr =""
@@ -60,23 +40,33 @@ function displayParksHTML (parkName, parkAddress) {
   console.log ("Park Element Counter", parkELCounter)
 
   let returnedStyledParkAddress = parkAddressStyler (parkAddress)
+  
 
   parkResultsContainer = document.querySelector("#resultsForm")
+
+  const parkDivEl = document.createElement("div")
   const parkNameEl = document.createElement("h4")
   const parkAddressEL = document.createElement("p")
   const parkSaveButton = document.createElement("button")
+
+  parkDivEl.classList.add("searchResult")
+
   parkSaveButton.id = `park-save-${parkELCounter}`
 
   parkNameEl.textContent = `Name: ${parkName}`
   parkAddressEL.textContent = `Address: ${returnedStyledParkAddress}`
   parkSaveButton.textContent = 'Save'
 
-  parkResultsContainer.appendChild(parkNameEl)
-  parkResultsContainer.appendChild(parkAddressEL)
-  parkResultsContainer.appendChild(parkSaveButton)
+  parkDivEl.appendChild(parkNameEl)
+  parkDivEl.appendChild(parkAddressEL)
+  parkDivEl.appendChild(parkSaveButton)
 
-  parkSaveButton.addEventListener("click", () => document.querySelector("#itineraryForm").innerHTML = `PARK NAME: ${parkName}` )
+  parkResultsContainer.appendChild(parkDivEl)
+
+  parkSaveButton.addEventListener("click", () => document.querySelector("#parkSaved").innerHTML = `PARK NAME: ${parkName}` )
   }
+
+
 // *********************************************************************************************************
 
 // RESTAURANTS
