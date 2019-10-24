@@ -5,7 +5,6 @@ let tempArr = []
 let tempStr =""
 let styledParkAddress =""
 
-
 // ********************************************************************************************************
 // helper function to deal with the unstyled json response string
 // ********************************************************************************************************
@@ -40,7 +39,6 @@ function displayParksHTML (parkName, parkAddress) {
 
 // building the dom object here
   parkResultsContainer = document.querySelector("#resultsForm")
-  parkResultsContainer.innerHTML = `` // clearing the DOM for new search results
   const parkNameEl = document.createElement("h4")
   const parkAddressEL = document.createElement("p")
   const parkSaveButton = document.createElement("button")
@@ -54,8 +52,8 @@ function displayParksHTML (parkName, parkAddress) {
   parkResultsContainer.appendChild(parkAddressEL)
   parkResultsContainer.appendChild(parkSaveButton)
 
-  // adding the event listener to the just added save button here
-  parkSaveButton.addEventListener("click", () => document.querySelector("#itineraryForm").innerHTML = `Park: ${parkName}` )
+  // adding the event listener to the just added save button here and appending the new itinerary
+  parkSaveButton.addEventListener("click", () => document.querySelector("#itineraryForm").innerHTML += `Park: ${parkName}` )
   }
 
 

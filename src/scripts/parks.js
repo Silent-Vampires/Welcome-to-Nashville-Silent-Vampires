@@ -1,13 +1,13 @@
 
 const parkURL = "https://data.nashville.gov/resource/74d7-b74t.json";  //map the endpoint to a variable
 let parkELCounter=0;
+
 function fetchParkApi() {
-  
   const inputField = document.querySelector("#parkText") //map the #parktext id to a variable
   console.log("user input", inputField.value) // console log the value inserted in the text field
   const inputFieldValue = inputField.value;
   // *******************************************************************************
-  /// idiot proof feature that style the user's input to match the json objects, replacing uppercase letters with lowercase letters and spaces/dashes with underscore
+  /// idiot proof feature that style the user's input to match the json objects, replacing uppercase letters //   with lowercase letters and spaces/dashes with underscore
   // *******************************************************************************
   const capitalizedArr = []; // initializing an empty array. the styled user input will be pushed here
   for (let i = 0; i < inputFieldValue.length; i++) { //looping through the string characters
