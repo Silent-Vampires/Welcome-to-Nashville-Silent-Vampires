@@ -1,25 +1,5 @@
 
 // PARKS
-// const buildParksHtml = parksDisplay => `
-// <article>
-//   <h4>${parksDisplay.title}</h4>
-//   <p>
-//       <a href="${parksDisplay.source_url}">Click here to see the park</a>
-//   </p>
-// </article>
-// `
-
-
-// const displayParksHTML = allParksDisplay => {
-//   let parksResultsHtml = ""
-//   allParksDisplay.forEach(parksDisplay => {
-//     let parksHtml = buildParksHtml(parksDisplay)
-//     parksResultsHtml += parksHtml
-//   });
-
-//   const searchResultsSection = document.querySelector(".search-results")
-//   searchResultsSection.innerHTML = parksResultsHtml
-// }
 
 let tempArr = []
 let tempStr =""
@@ -29,18 +9,15 @@ let styledParkAddress =""
 // ********************************************************************************************************
 // helper function to deal with the unstyled json response string
 // ********************************************************************************************************
-
 function parkAddressStyler (parkAddress){ 
   
   let tempStr=  parkAddress
   console.log(tempStr, parkAddress)
   for (let i=0; i<parkAddress.length; i++){
-    if (tempStr[i] === "{" || tempStr[i] === "}"  || tempStr[i] === `"`) {
+    if (tempStr[i] === "{" || tempStr[i] === "}"  || tempStr[i] === `"`) { // replacing the weird charachters with spaces
       tempArr.push(" ")
-      // debugger
     console.log(tempArr)
   } else {
-    // debugger
     tempArr.push(tempStr[i]) 
     console.log(tempArr)
   }
@@ -49,9 +26,9 @@ function parkAddressStyler (parkAddress){
   tempArr=[]
   tempStr=""
   console.log(styledParkAddress)
-  return styledParkAddress.replace("address", "")
-   
+  return styledParkAddress.replace("address", "") //eliminating the unstyled "address:"
   }
+
  // ********************************************************************************************************
 // dynamically populating search result to the dom by creating dom elements and append them as childs
 // *********************************************************************************************************
@@ -59,9 +36,11 @@ function displayParksHTML (parkName, parkAddress) {
   parkELCounter++
   console.log ("Park Element Counter", parkELCounter)
 
-  let returnedStyledParkAddress = parkAddressStyler (parkAddress)
+  let returnedStyledParkAddress = parkAddressStyler (parkAddress) // calling the helper function to style the 'human_address' weird json response
 
+// building the dom object here
   parkResultsContainer = document.querySelector("#resultsForm")
+  parkResultsContainer.innerHTML = `` // clearing the DOM for new search results
   const parkNameEl = document.createElement("h4")
   const parkAddressEL = document.createElement("p")
   const parkSaveButton = document.createElement("button")
@@ -75,7 +54,8 @@ function displayParksHTML (parkName, parkAddress) {
   parkResultsContainer.appendChild(parkAddressEL)
   parkResultsContainer.appendChild(parkSaveButton)
 
-  parkSaveButton.addEventListener("click", () => document.querySelector("#itineraryForm").innerHTML = `PARK NAME: ${parkName}` )
+  // adding the event listener to the just added save button here
+  parkSaveButton.addEventListener("click", () => document.querySelector("#itineraryForm").innerHTML = `Park: ${parkName}` )
   }
 
 

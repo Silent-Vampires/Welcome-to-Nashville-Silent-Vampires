@@ -1,6 +1,6 @@
-const handleSearchParks = event => {
-    const inputField = document.querySelector("#parkText")
-    console.log("user input", inputField.value)
+// const handleSearchParks = event => {
+//     const inputField = document.querySelector("#parkText")
+//     console.log("user input", inputField.value)
 
 //   handleSearchParks(inputField.value)
 //   .then(response => {
@@ -9,16 +9,16 @@ const handleSearchParks = event => {
 //   })
  }
 
-const addParksEventListenerToSearchButton = () => {
-  const searchButton = document.getElementById("searchButtonParks")
-  searchButton.addEventListener("click", tryToFetch)
-}
+// const addParksEventListenerToSearchButton = () => {
+//   const searchButton = document.getElementById("searchButtonParks")
+//   searchButton.addEventListener("click", tryToFetch)
+// }
 
-const tryToFetch = () => {
- fetch (`https://data.nashville.gov/resource/74d7-b74t.json?park_name=Potters%20Field`)
- .then(response => response.json())
- .then(jsonedResponse=>
-   console.log(jsonedResponse));
+// const tryToFetch = () => {
+//  fetch (`https://data.nashville.gov/resource/74d7-b74t.json?park_name=Potters%20Field`)
+//  .then(response => response.json())
+//  .then(jsonedResponse=>
+//    console.log(jsonedResponse));
 
 }
 
