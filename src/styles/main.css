@@ -55,6 +55,6 @@ section {
 	animation-direction: alternate;
 }
 
- .itineraryFinal:hover {
-    transform: scale(1.2);
+.itineraryForm:hover {
+    transform: scale(1.3);
 }
