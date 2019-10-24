@@ -246,18 +246,24 @@ const buildMeetupHtml = (meetup, number) => {
     // targeting the div for meetup in Itinerary
     const meetupItinerary = document.querySelector("#meetSaved")
     
-    meetupItinerary.innerHTML = ""  // clearing the current meetupItinerary
-    const meetupLabel = document.createElement("h4")
-    meetupLabel.textContent = "Meetup:"
+    // editing this
+    // meetupItinerary.innerHTML = ""  // clearing the current meetupItinerary
+    meetupItinerary.innerHTML = `
+    <h4>Meetup:</h4>
+    ${meetup.name.text}  <a href="${meetup.url}" target="_blank">${websiteAnchor}</a>
+    `
 
-    //cloning nodes from results to go in itinerary
-    const cloneMeetupTitle = meetupTitle.cloneNode(true)
-    const cloneMeetupSite = websiteParagraph.cloneNode(true)
+    // const meetupLabel = document.createElement("h4")
+    // meetupLabel.textContent = "Meetup:"
 
-    // add meetupLable and the saved item to the itinerary
-    meetupItinerary.appendChild(meetupLabel)
-    meetupItinerary.appendChild(cloneMeetupTitle)
-    meetupItinerary.appendChild(cloneMeetupSite)
+    // //cloning nodes from results to go in itinerary
+    // const cloneMeetupTitle = meetupTitle.cloneNode(true)
+    // const cloneMeetupSite = websiteParagraph.cloneNode(true)
+
+    // // add meetupLable and the saved item to the itinerary
+    // meetupItinerary.appendChild(meetupLabel)
+    // meetupItinerary.appendChild(cloneMeetupTitle)
+    // meetupItinerary.appendChild(cloneMeetupSite)
 
   
   })
