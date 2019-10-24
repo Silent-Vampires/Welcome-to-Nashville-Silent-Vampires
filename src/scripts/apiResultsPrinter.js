@@ -165,30 +165,37 @@ const displayRestHTML = restaurantArray => {
 //creates function that iterates thru search results, creates elements for each, adds content to each, appends them to the DOM, and add event listener to save button and populate itinerary
 
 const displayConcertsHTML = allConcertsDisplay => {
+  
   // console.log(allConcertsDisplay._embedded.events, typeof allConcertsDisplay._embedded.events)
   let counter = 1
   // let concertsResultsHtml = ""
-  
+  const searchResultsSection = document.querySelector("#resultsForm")
+
+  searchResultsSection.innerHTML = ""
+
   allConcertsDisplay._embedded.events.forEach(concertsDisplay => {
     
-    const searchResultsSection = document.querySelector("#resultsForm")
-
+    
+    const searchResult = document.createElement("div")
     const titleElement = document.createElement("h4")
     const dateElement = document.createElement("p")
     const venueElement = document.createElement("p")
     const saveButton = document.createElement("button")
 
+    searchResult.classList.add("searchResult")
     saveButton.id = `save--${counter}`
     titleElement.textContent = `${concertsDisplay.name}`
     dateElement.textContent = `Date: ${concertsDisplay.dates.start.localDate}`
     venueElement.textContent = `Venue: ${concertsDisplay._embedded.venues[0].name}`
     saveButton.textContent = 'Save'
 
-    searchResultsSection.appendChild(titleElement)
-    searchResultsSection.appendChild(dateElement)
-    searchResultsSection.appendChild(venueElement)
-    searchResultsSection.appendChild(saveButton)
-    saveButton.addEventListener("click", () => document.querySelector("#itineraryForm").innerHTML = `${concertsDisplay.name}`)
+    searchResult.appendChild(titleElement)
+    searchResult.appendChild(dateElement)
+    searchResult.appendChild(venueElement)
+    searchResult.appendChild(saveButton)
+    searchResultsSection.appendChild(searchResult)
+    
+    saveButton.addEventListener("click", () => document.querySelector("#concertSaved").innerHTML = `<h4>Concert:</h4> ${concertsDisplay.name} at ${concertsDisplay._embedded.venues[0].name} on ${concertsDisplay.dates.start.localDate}</div>`)
     counter++
 
   })

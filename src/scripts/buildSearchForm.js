@@ -17,7 +17,7 @@ const addParksEventListenerToSearchButton = () => {
 const handleSearchRest = event => {
   const inputField = document.querySelector("#restText")
   console.log("user input", inputField.value)
-    
+
   searchRestaurant(inputField.value)
   .then(response => {
     //this console log is here to see what the fetch call was returning and what type of item (object) it was
@@ -38,13 +38,13 @@ const addRestaurantsEventListenerToSearchButton = () => {
 
 // MEETUP
 const handleSearchMeet = event => {
-    const inputField = document.querySelector("#meetText")
-    
+  const inputField = document.querySelector("#meetText")
+
   searchMeetups(inputField.value)
-  .then(response => {
-    displayMeetupHtml(response.events)
-    inputField.value = ""
-  })
+    .then(response => {
+      displayMeetupHtml(response.events)
+      inputField.value = ""
+    })
 }
 
 const addMeetupEventListenerToSearchButton = () => {
@@ -59,18 +59,21 @@ const addMeetupEventListenerToSearchButton = () => {
 // creates function to assigned text to input field variable
 
 
-const handleSearchConcerts = event => {
-    const inputField = document.querySelector("#concertText")
-    console.log("user input", inputField.value)
-    
-//Calls API search function with inputField as argument, takes returns response, and calls function to build DOM
+const handleSearchConcerts = () => {
+  const inputField = document.querySelector("#concertText")
+
+ //Calls API search function with inputField as argument, takes returns response, and calls function to build DOM. Will set results to No Results Found if no search results returned
 
   searchConcerts(inputField.value)
-  .then(response => {
-    // console.log(response)
-    displayConcertsHTML(response)
-    inputField.value = ""
-  })
+    .then(response => {
+      if (response.hasOwnProperty("_embedded")) {
+        displayConcertsHTML(response)
+      } else {
+        document.querySelector("#resultsForm").innerHTML = "<h4>No Results Found</h4>"
+      }
+      
+      inputField.value = ""
+    })
 }
 
 const addConcertEventListenerToSearchButton = () => {
@@ -81,7 +84,7 @@ const addConcertEventListenerToSearchButton = () => {
 
 // BUILD SEARCH FORM
 const buildAndAppendSearchForm = () => {
-    const searchForm = `
+  const searchForm = `
     <h1>Welcome to Nashville</h1>
     <h3>Search to Create Itinerary: </h3>
         <section class="parkSearch">
@@ -105,6 +108,6 @@ const buildAndAppendSearchForm = () => {
         </section>
 
     `
-    const containerDiv = document.querySelector("#searchForm")
-    containerDiv.innerHTML = searchForm
-  }
+  const containerDiv = document.querySelector("#searchForm")
+  containerDiv.innerHTML = searchForm
+}
