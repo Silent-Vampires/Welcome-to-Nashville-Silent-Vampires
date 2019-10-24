@@ -42,6 +42,7 @@ const handleSearchMeet = event => {
 
   searchMeetups(inputField.value)
     .then(response => {
+      // HERE IS WHERE THE CODE WILL GO FOR "No Results Found" ONCE REAL API IS WORKING
       displayMeetupHtml(response.events)
       inputField.value = ""
     })
