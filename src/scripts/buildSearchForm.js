@@ -11,6 +11,8 @@ const addParksEventListenerToSearchButton = () => {
   searchButton.addEventListener("click", handleSearchParks)
 }
 
+// *********************************************************************************************************
+
 // RESTAURANTS
 const handleSearchRest = event => {
   const inputField = document.querySelector("#restText")
@@ -32,6 +34,7 @@ const addRestaurantsEventListenerToSearchButton = () => {
   searchButton.addEventListener("click", handleSearchRest)
 }
 
+// *********************************************************************************************************
 
 // MEETUP
 const handleSearchMeet = event => {
@@ -49,6 +52,7 @@ const addMeetupEventListenerToSearchButton = () => {
   searchButton.addEventListener("click", handleSearchMeet)
 }
 
+// *********************************************************************************************************
 
 // CONCERTS
 
