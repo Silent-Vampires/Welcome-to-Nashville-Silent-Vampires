@@ -114,32 +114,39 @@ function displayParksHTML (parkName, parkAddress) {
 const displayRestHTML = restaurantArray => {
   //by doing adding a counter I am making a unique name for each search result
   let counter = 1
+  //let restResultsHTML = ""
+  const searchResultsSection = document.querySelector('#resultsForm')
+
+  searchResultsSection.innerHTML = ''
 
   restaurantArray.forEach(restaurant => {
     // console.log(restaurantArray)
-    const searchResultsSection = document.querySelector("#resultsForm")
+    // const searchResultsSection = document.querySelector("#resultsForm")
 
     //these lines create the structure of the return, by creating and element(title, address, phone, save) then give them a HTML element
+    const searchResult = document.createElement('div')
     const titleElement = document.createElement('h4')
     const addressElement = document.createElement('p')
     const phoneElement = document.createElement('p')
     const saveButton = document.createElement('button')
 
     //this line uses the counter that we give each result then saves it by use of the save button
+    searchResult.classList.add('searchResult')
     saveButton.id = `save--${counter}`
     //these lines pull the information form the fetch call and assign them to an element that will populate the DOM
     titleElement.textContent = `${restaurant.restaurant.name}`
-    addressElement.textContent = `${restaurant.restaurant.location.address}`
-    phoneElement.textContent = `${restaurant.restaurant.phone_numbers}`
+    addressElement.textContent = `Address: ${restaurant.restaurant.location.address}`
+    phoneElement.textContent = `Phone Number: ${restaurant.restaurant.phone_numbers}`
     saveButton.textContent = `Save`
 
     //these items will append the elements to the Node and makes them useable
-    searchResultsSection.appendChild(titleElement)
-    searchResultsSection.appendChild(addressElement)
-    searchResultsSection.appendChild(phoneElement)
-    searchResultsSection.appendChild(saveButton)
+    searchResult.appendChild(titleElement)
+    searchResult.appendChild(addressElement)
+    searchResult.appendChild(phoneElement)
+    searchResult.appendChild(saveButton)
+    searchResultsSection.appendChild(searchResult)
     //this is an event listener for the save button that will take the information and attach it to the DOM at #restSaved
-    saveButton.addEventListener('click', event => document.querySelector('#restSaved').innerHTML = `${restaurant.restaurant.name}`)
+    saveButton.addEventListener('click', event => document.querySelector('#restSaved').innerHTML = `<h4>Restaurants:</h4>${restaurant.restaurant.name} at ${restaurant.restaurant.location.address} and you can call ${restaurant.restaurant.phone_numbers} for more information or reservation.</div>`)
     counter ++
   })
 }
