@@ -22,9 +22,10 @@ const handleSearchRest = event => {
   searchRestaurant(inputField.value)
   .then(response => {
     //this console log is here to see what the fetch call was returning and what type of item (object) it was
-    console.log(response.restaurants, typeof response)
+    // console.log(response.restaurants, typeof response)
+    console.log(response)
     //I was making it to complex by adding in all the items i was trying to fetch here instead of just sending the response with the object full of arrays
-    if(response.hasOwnProperty("restaurants")) {
+    if(response.results_found > 0) {
     displayRestHTML(response.restaurants)
     } else {
       document.querySelector('#resultsForm').innerHTML = "<h4>No Results Found</h4>"
