@@ -119,18 +119,18 @@ const displayRestHTML = restaurantArray => {
     const searchResultsSection = document.querySelector("#resultsForm")
 
     const titleElement = document.createElement('h4')
-    const urlElement = document.createElement('p')
+    const addressElement = document.createElement('p')
     const phoneElement = document.createElement('p')
     const saveButton = document.createElement('button')
 
     saveButton.id = `save--${counter}`
     titleElement.textContent = `${restaurant.restaurant.name}`
-    urlElement.textContent = `${restaurant.restaurant.location.address}`
+    addressElement.textContent = `${restaurant.restaurant.location.address}`
     phoneElement.textContent = `${restaurant.restaurant.phone_numbers}`
     saveButton.textContent = `Save`
 
     searchResultsSection.appendChild(titleElement)
-    searchResultsSection.appendChild(urlElement)
+    searchResultsSection.appendChild(addressElement)
     searchResultsSection.appendChild(phoneElement)
     searchResultsSection.appendChild(saveButton)
     saveButton.addEventListener('click', event => document.querySelector('#restSaved').innerHTML = `${restaurant.restaurant.name}`)
@@ -196,30 +196,33 @@ const displayConcertsHTML = allConcertsDisplay => {
 // create an function that builds the HTML string for each meetup.
 const buildMeetupHtml = (meetup, number) => {
   return `
-<article>
-  <h4>${meetup.name.text}</h4>
-  <p>
-      <a href="${meetup.url}" target="_blank">${meetup.url}</a>
-  </p>
-  <button class="save--${number}" >Save</button>
-</article>
-`
-}
-
-// create a function to display meetups to the DOM
-const displayMeetupHtml = meetupArray => {
-  let meetupResultHtml = ""
+  
+  ${meetup.name.text}
+  ${meetup.url}
+  
+  Save ` }
+  // create a function to display meetups to the DOM
+  const displayMeetupHtml = meetupArray => {
   let num = 1
+  let meetupResultHtml = ""
+  if (meetupArray.length <= 4) {
   meetupArray.forEach(meetup => {
-    const meetupHtml = buildMeetupHtml(meetup, num)
-    meetupResultHtml += meetupHtml
-    num =+ 1
-  })
+  const meetupHtml = buildMeetupHtml(meetup, num)
+  meetupResultHtml += meetupHtml
+  num += 1
+  } )
+  } else {
+  for (i = 0; i < 4; i++) {
+  const meetupHtml = buildMeetupHtml(meetupArray[i], num)
+  meetupResultHtml += meetupHtml
+  num += 1
+  }
+  }
+  
   // then, display this to the DOM
   const searchResultsSection = document.querySelector("#resultsForm")
   searchResultsSection.innerHTML = meetupResultHtml
-}
-
+  }
 
 
   
