@@ -47,14 +47,14 @@ section {
     border-radius: 20px;
     text-align: center;
     color: #fff;
-	background: linear-gradient(45deg, red, blue);
+	background: linear-gradient(45deg, red,yellow);
     background-size: 400% 400%;
     animation-duration: 3s;
-    animation-name: color-change;
+    animation-name: color_change;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
 }
-   
-@keyframes color-change {
-    from {background-color: red;}
-    to {background-color: blue;}
-  }
 
+ .itineraryFinal:hover {
+    transform: scale(1.2);
+}
