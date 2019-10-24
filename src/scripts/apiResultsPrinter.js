@@ -223,6 +223,7 @@ const buildMeetupHtml = (meetup, number) => {
   const saveButton = document.createElement("button")
 
   // modifying the classes, id's, etc for each tag
+  meetupContainer.classList.add("searchResult")
   websiteAnchor.href = `${meetup.url}` 
   websiteAnchor.target = "_blank"
   saveButton.id = `meetup save--${number}`
@@ -246,13 +247,17 @@ const buildMeetupHtml = (meetup, number) => {
     const meetupItinerary = document.querySelector("#meetSaved")
     
     meetupItinerary.innerHTML = ""  // clearing the current meetupItinerary
-    const meetupLabel = document.createElement("label")
-    meetupLabel.textContent = "Meetup: "
-    const cloneMeetupContainer = meetupContainer.cloneNode(true) // clone meetupContainer so that it doesn't dissapear from results
+    const meetupLabel = document.createElement("h4")
+    meetupLabel.textContent = "Meetup:"
+
+    //cloning nodes from results to go in itinerary
+    const cloneMeetupTitle = meetupTitle.cloneNode(true)
+    const cloneMeetupSite = websiteParagraph.cloneNode(true)
 
     // add meetupLable and the saved item to the itinerary
     meetupItinerary.appendChild(meetupLabel)
-    meetupItinerary.appendChild(cloneMeetupContainer)
+    meetupItinerary.appendChild(cloneMeetupTitle)
+    meetupItinerary.appendChild(cloneMeetupSite)
 
   
   })
