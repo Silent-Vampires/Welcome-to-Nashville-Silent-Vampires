@@ -227,13 +227,17 @@ const buildMeetupHtml = (meetup, number) => {
   meetupContainer.appendChild(saveButton)
 
   // event listener for save button. This will move things to the Itinerary part of the DOM
-  // ***************************************************************************************
-  // WORKING ON THIS PART OF THE CODE!! NEED TO GET TO THE ITINERARY
-  // ***************************************************************************************
-
   saveButton.addEventListener("click", function () {
-    const apiType = saveButton.id.split(" ")[0] // targets the part of the id that says "meetup"
-    const thisMeetup = meetupTitle.innerHTML // title of the selected meetup
+    // targeting the div for meetup in Itinerary
+    const meetupItinerary = document.querySelector("#meetSaved")
+    
+    meetupItinerary.innerHTML = ""  // clearing the current meetupItinerary
+    const cloneMeetupContainer = meetupContainer.cloneNode(true) // clone meetupContainer so that it doesn't dissapear from results
+
+    // add the saved item to the itinerary
+    meetupItinerary.appendChild(cloneMeetupContainer)
+
+  
   })
 
   return meetupContainer
