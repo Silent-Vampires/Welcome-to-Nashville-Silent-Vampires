@@ -216,6 +216,7 @@ const buildMeetupHtml = (meetup, number) => {
   const saveButton = document.createElement("button")
 
   // modifying the classes, id's, etc for each tag
+  meetupContainer.classList.add("searchResult")
   websiteAnchor.href = `${meetup.url}` 
   websiteAnchor.target = "_blank"
   saveButton.id = `meetup save--${number}`
