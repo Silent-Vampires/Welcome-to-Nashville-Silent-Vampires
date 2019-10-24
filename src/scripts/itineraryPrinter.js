@@ -1,8 +1,8 @@
 const buildItinerary = () => {
     const savedDivs = document.querySelector("#itineraryForm")
     const itineraryDisplay = `
-    <h2 class="itineraryHeader">Itinerary</h2>
     <section class="itineraryForm">
+        <h2 class="itineraryHeader">Itinerary</h2>
         <div class="itineraryFinal" id="parkSaved"></div>
         <div class="itineraryFinal" id="restSaved"></div>
         <div class="itineraryFinal" id="meetSaved"></div>

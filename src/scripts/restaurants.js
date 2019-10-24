@@ -1,6 +1,6 @@
 const zomatoApiBaseURL = 'https://developers.zomato.com/api/v2.1'
 
-const searchRestaurant = inputField => fetch(`${zomatoApiBaseURL}/search?entity_id=1138&entity_type=city&q=${inputField}&count=5`,
+const searchRestaurant = inputField => fetch(`${zomatoApiBaseURL}/search?entity_id=1138&entity_type=city&q=${inputField}&count=6`,
     //this header is there for accessing the credentials you have to have a header object
     {
         'headers': {

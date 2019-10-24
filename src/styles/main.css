@@ -8,7 +8,7 @@ body {
     background-attachment: fixed;
 }
 h1, h2 {
-    text-shadow: 4px 4px navy;
+    text-shadow: 4px 1px navy;
     color: white;
 }
 
@@ -24,12 +24,14 @@ input {
     font: 400 13.3333px Arial;
     text-indent: 5px;
     margin: 5px;
-    height: 20px;
+    height: 23px;
 }
 
 button {
     border-radius: 22px;
     margin: 5px;
+    width: 50%;
+    font-weight: bold;
 }
 
 section {
@@ -71,11 +73,12 @@ section {
     animation-direction: alternate;
     text-align: center;
     width: 400px;
+    
 }
 
 .itineraryHeader {
     text-align: center;
 }
-.itineraryForm:hover {
+/* .itineraryForm:hover {
     transform: scale(1.3);
-}
+} */
