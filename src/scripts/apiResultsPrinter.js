@@ -197,6 +197,9 @@ const displayConcertsHTML = allConcertsDisplay => {
 }
 
 // *********************************************************************************************************
+// MEETUP
+// create an function that builds the HTML string for each meetup.
+
 const buildMeetupHtml = (meetup, number) => {
   return `
 <article>
@@ -208,15 +211,6 @@ const buildMeetupHtml = (meetup, number) => {
 </article>
 `
 }
-// MEETUP
-// create an function that builds the HTML string for each meetup.
-const buildMeetupHtml = (meetup, number) => {
-  return `
-  
-  ${meetup.name.text}
-  ${meetup.url}
-  
-  Save ` }
   // create a function to display meetups to the DOM
   const displayMeetupHtml = meetupArray => {
   let num = 1
