@@ -4,6 +4,7 @@ const handleSearchParks = event => {
     const inputField = document.querySelector("#parkText")
     console.log("user input", inputField.value)
     fetchParkApi();
+    inputField.value="" // resetting the input field to be empty after every search
 }
 
 const addParksEventListenerToSearchButton = () => {

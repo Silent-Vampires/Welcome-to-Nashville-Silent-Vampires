@@ -236,18 +236,25 @@ const buildMeetupHtml = (meetup, number) => {
     // targeting the div for meetup in Itinerary
     const meetupItinerary = document.querySelector("#meetSaved")
     
-    meetupItinerary.innerHTML = ""  // clearing the current meetupItinerary
-    const meetupLabel = document.createElement("h4")
-    meetupLabel.textContent = "Meetup:"
+    // editing this
+    // meetupItinerary.innerHTML = ""  // clearing the current meetupItinerary
+    meetupItinerary.innerHTML = `
+    <h4>Meetup:</h4>
+    <div>${meetup.name.text}. Details at the website below.</div>
+    <a href="${meetup.url}" target="_blank">${websiteAnchor}</a>
+    `
 
-    //cloning nodes from results to go in itinerary
-    const cloneMeetupTitle = meetupTitle.cloneNode(true)
-    const cloneMeetupSite = websiteParagraph.cloneNode(true)
+    // const meetupLabel = document.createElement("h4")
+    // meetupLabel.textContent = "Meetup:"
 
-    // add meetupLable and the saved item to the itinerary
-    meetupItinerary.appendChild(meetupLabel)
-    meetupItinerary.appendChild(cloneMeetupTitle)
-    meetupItinerary.appendChild(cloneMeetupSite)
+    // //cloning nodes from results to go in itinerary
+    // const cloneMeetupTitle = meetupTitle.cloneNode(true)
+    // const cloneMeetupSite = websiteParagraph.cloneNode(true)
+
+    // // add meetupLable and the saved item to the itinerary
+    // meetupItinerary.appendChild(meetupLabel)
+    // meetupItinerary.appendChild(cloneMeetupTitle)
+    // meetupItinerary.appendChild(cloneMeetupSite)
 
   
   })
@@ -259,14 +266,14 @@ const buildMeetupHtml = (meetup, number) => {
 const displayMeetupHtml = meetupArray => {
   let num = 1
   const meetupResultHtml = document.createElement("div")
-  if (meetupArray.length <= 4) {
+  if (meetupArray.length <= 6) {
     meetupArray.forEach(meetup => {
         const meetupHtml = buildMeetupHtml(meetup, num)
         meetupResultHtml.appendChild(meetupHtml)
         num += 1 
     } )
   } else {
-    for (i = 0; i < 4; i++) {
+    for (i = 0; i < 6; i++) {
       const meetupHtml = buildMeetupHtml(meetupArray[i], num)
       meetupResultHtml.appendChild(meetupHtml)
       num += 1
