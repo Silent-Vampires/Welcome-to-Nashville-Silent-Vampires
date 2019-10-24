@@ -7,6 +7,10 @@ body {
     background-image: url("https://s3.amazonaws.com/freeman-craft/locations/United-States/Nashville_Main.jpg");
     background-attachment: fixed;
 }
+h1, h2 {
+    text-shadow: 4px 4px navy;
+    color: white;
+}
 
 #searchForm {
     margin: 5px;
@@ -33,14 +37,21 @@ section {
     flex-direction: row;
 }
 
+#resultsForm{
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .searchResult {
     background: rgba(255,255,255,0.8);
     border: 1px black solid;
     margin: 5px;
-    padding:10px;
+    padding:20px;
     border-radius: 22px;
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
     width:400px;
+    
 }
 
 .itineraryForm {

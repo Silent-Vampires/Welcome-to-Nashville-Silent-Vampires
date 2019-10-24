@@ -93,7 +93,7 @@ const addConcertEventListenerToSearchButton = () => {
 const buildAndAppendSearchForm = () => {
   const searchForm = `
     <h1>Welcome to Nashville</h1>
-    <h3>Search to Create Itinerary: </h3>
+    <h2>Search to Create Itinerary: </h2>
         <section class="parkSearch">
             <input type="text" id="parkText" placeholder="Parks">
             <button id = "searchButtonParks">Search</button>
