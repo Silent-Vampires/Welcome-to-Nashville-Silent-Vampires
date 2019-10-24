@@ -45,8 +45,11 @@ function iterateJson(jsonfiedResponse, encodedUserInput) {
         parkName = jsonfiedResponse[i].park_name
         parkAddress = jsonfiedResponse[i].mapped_location.human_address
         displayParksHTML (parkName, parkAddress);
-      }else {
-        document.querySelector("#resultsForm").innerHTML="No Results"
-     }
+      }
+      
+    //   else {
+    //     document.querySelector("#resultsForm").innerHTML="No Results"
+    //  }
+    
     }
   }
