@@ -77,30 +77,75 @@ function displayParksHTML (parkName, parkAddress) {
 
   parkSaveButton.addEventListener("click", () => document.querySelector("#itineraryForm").innerHTML = `PARK NAME: ${parkName}` )
   }
-
+// *********************************************************************************************************
 
 // RESTAURANTS
-const buildRestHtml = restDisplay => `
-<article>
-  <h4>${restDisplay.title}</h4>
-  <p>
-      <a href="${restDisplay.source_url}">Click here to see the restaurant</a>
-  </p>
-</article>
-`
-const displayRestHTML = allRestDisplay => {
-  let restResultsHtml = ""
-  allRestDisplay.forEach(restDisplay => {
-    let restHtml = buildRestHtml(restDisplay)
-    restResultsHtml += restHtml
-  });
+// const buildRestHtml = (restaurant) =>{ 
+//   console.log(restaurant.restaurant.name)
+//   return `
+// <article>
+//   <h4>${restaurant.restaurant.name}</h4>
+//   <p>
+//       <a href="${restaurant.restaurant.url}">Click here to see the restaurant</a>
 
-  const searchResultsSection = document.querySelector(".search-results")
-  searchResultsSection.innerHTML = restResultsHtml
+//   </p>
+//   <button class="restSave--">save</button>
+// </article>
+// `
+// }
+// const displayRestHTML = restaurantArray=> {
+//   //i did this console log to make sure the information was making it to this point
+//   console.log(restaurantArray)
+//   let restResultsHtml = ""
+//   // let num = 1
+//   restaurantArray.forEach(restaurant => {
+//     let restaurantHtml = buildRestHtml(restaurant)
+//     restResultsHtml += restaurantHtml
+//     // num += 1
+//   });
+
+//   const searchResultsSection = document.querySelector("#resultsForm")
+//   searchResultsSection.innerHTML = restResultsHtml
+// }
+
+
+//restaurant 2.0
+
+const displayRestHTML = restaurantArray => {
+  //by doing adding a counter I am making a unique name for each search result
+  let counter = 1
+
+  restaurantArray.forEach(restaurant => {
+    // console.log(restaurantArray)
+    const searchResultsSection = document.querySelector("#resultsForm")
+
+    //these lines create the structure of the return, by creating and element(title, address, phone, save) then give them a HTML element
+    const titleElement = document.createElement('h4')
+    const addressElement = document.createElement('p')
+    const phoneElement = document.createElement('p')
+    const saveButton = document.createElement('button')
+
+    //this line uses the counter that we give each result then saves it by use of the save button
+    saveButton.id = `save--${counter}`
+    //these lines pull the information form the fetch call and assign them to an element that will populate the DOM
+    titleElement.textContent = `${restaurant.restaurant.name}`
+    addressElement.textContent = `${restaurant.restaurant.location.address}`
+    phoneElement.textContent = `${restaurant.restaurant.phone_numbers}`
+    saveButton.textContent = `Save`
+
+    //these items will append the elements to the Node and makes them useable
+    searchResultsSection.appendChild(titleElement)
+    searchResultsSection.appendChild(addressElement)
+    searchResultsSection.appendChild(phoneElement)
+    searchResultsSection.appendChild(saveButton)
+    //this is an event listener for the save button that will take the information and attach it to the DOM at #restSaved
+    saveButton.addEventListener('click', event => document.querySelector('#restSaved').innerHTML = `${restaurant.restaurant.name}`)
+    counter ++
+  })
 }
 
 
-
+// *********************************************************************************************************
 
 
 
@@ -158,45 +203,71 @@ const displayConcertsHTML = allConcertsDisplay => {
   // searchResultsSection.innerHTML = concertsResultsHtml
 }
 
-
-
+// *********************************************************************************************************
 // MEETUP
 // create an function that builds the HTML string for each meetup.
 const buildMeetupHtml = (meetup, number) => {
-  return `
-<article>
-<h4>${meetup.name.text}</h4>
-<p>
-    <a href="${meetup.url}" target="_blank">${meetup.url}</a>
-</p>
-<button class="meetup save--${number}" >Save</button>
-</article>
-`
+
+  // creating the tags for a single meetup
+  const meetupContainer = document.createElement("article")
+  const meetupTitle = document.createElement("h4")
+  const websiteParagraph = document.createElement("p")
+  const websiteAnchor = document.createElement("a")
+  const saveButton = document.createElement("button")
+
+  // modifying the classes, id's, etc for each tag
+  websiteAnchor.href = `${meetup.url}` 
+  websiteAnchor.target = "_blank"
+  saveButton.id = `meetup save--${number}`
+
+  // adding the text content to each tag
+  meetupTitle.textContent = `${meetup.name.text}`
+  websiteAnchor.textContent = `${meetup.url}`
+  saveButton.textContent = "Save"
+
+  // appendChild to but websiteAnchor inside of websiteParagraph
+  websiteParagraph.appendChild(websiteAnchor)
+
+  // appendChild for all the tags to be inside meetupContainer
+  meetupContainer.appendChild(meetupTitle)
+  meetupContainer.appendChild(websiteParagraph)
+  meetupContainer.appendChild(saveButton)
+
+  // event listener for save button. This will move things to the Itinerary part of the DOM
+  // ***************************************************************************************
+  // WORKING ON THIS PART OF THE CODE!! NEED TO GET TO THE ITINERARY
+  // ***************************************************************************************
+
+  saveButton.addEventListener("click", function () {
+    const apiType = saveButton.id.split(" ")[0] // targets the part of the id that says "meetup"
+    const thisMeetup = meetupTitle.innerHTML // title of the selected meetup
+  })
+
+  return meetupContainer
 }
 
 // create a function to display meetups to the DOM
 const displayMeetupHtml = meetupArray => {
   let num = 1
-  let meetupResultHtml = ""
+  const meetupResultHtml = document.createElement("div")
   if (meetupArray.length <= 4) {
     meetupArray.forEach(meetup => {
         const meetupHtml = buildMeetupHtml(meetup, num)
-        meetupResultHtml += meetupHtml
+        meetupResultHtml.appendChild(meetupHtml)
         num += 1 
     } )
   } else {
     for (i = 0; i < 4; i++) {
       const meetupHtml = buildMeetupHtml(meetupArray[i], num)
-      meetupResultHtml += meetupHtml
+      meetupResultHtml.appendChild(meetupHtml)
       num += 1
     }
   }
 
   // then, display this to the DOM
   const searchResultsSection = document.querySelector("#resultsForm")
-  searchResultsSection.innerHTML = meetupResultHtml
+  searchResultsSection.innerHTML = ""
+  searchResultsSection.appendChild(meetupResultHtml)
 }
-
-
 
   
