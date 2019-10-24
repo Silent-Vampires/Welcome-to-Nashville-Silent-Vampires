@@ -239,9 +239,12 @@ const buildMeetupHtml = (meetup, number) => {
     const meetupItinerary = document.querySelector("#meetSaved")
     
     meetupItinerary.innerHTML = ""  // clearing the current meetupItinerary
+    const meetupLabel = document.createElement("label")
+    meetupLabel.textContent = "Meetup: "
     const cloneMeetupContainer = meetupContainer.cloneNode(true) // clone meetupContainer so that it doesn't dissapear from results
 
-    // add the saved item to the itinerary
+    // add meetupLable and the saved item to the itinerary
+    meetupItinerary.appendChild(meetupLabel)
     meetupItinerary.appendChild(cloneMeetupContainer)
 
   
