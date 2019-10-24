@@ -65,7 +65,7 @@ section {
     border-radius: 20px;
     text-align: center;
     color: #fff;
-	background: linear-gradient(45deg, red,yellow);
+    background: linear-gradient(45deg, red,yellow);
     background-size: 400% 400%;
     animation-duration: 3s;
     animation-name: color_change;
@@ -73,7 +73,6 @@ section {
     animation-direction: alternate;
     text-align: center;
     width: 400px;
-    
 }
 
 .itineraryHeader {
