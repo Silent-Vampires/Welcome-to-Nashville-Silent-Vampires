@@ -266,14 +266,14 @@ const buildMeetupHtml = (meetup, number) => {
 const displayMeetupHtml = meetupArray => {
   let num = 1
   const meetupResultHtml = document.createElement("div")
-  if (meetupArray.length <= 4) {
+  if (meetupArray.length <= 6) {
     meetupArray.forEach(meetup => {
         const meetupHtml = buildMeetupHtml(meetup, num)
         meetupResultHtml.appendChild(meetupHtml)
         num += 1 
     } )
   } else {
-    for (i = 0; i < 4; i++) {
+    for (i = 0; i < 6; i++) {
       const meetupHtml = buildMeetupHtml(meetupArray[i], num)
       meetupResultHtml.appendChild(meetupHtml)
       num += 1
