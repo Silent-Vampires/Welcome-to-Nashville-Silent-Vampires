@@ -240,7 +240,8 @@ const buildMeetupHtml = (meetup, number) => {
     // meetupItinerary.innerHTML = ""  // clearing the current meetupItinerary
     meetupItinerary.innerHTML = `
     <h4>Meetup:</h4>
-    ${meetup.name.text}  <a href="${meetup.url}" target="_blank">${websiteAnchor}</a>
+    <div>${meetup.name.text}. Details at the website below.</div>
+    <a href="${meetup.url}" target="_blank">${websiteAnchor}</a>
     `
 
     // const meetupLabel = document.createElement("h4")
