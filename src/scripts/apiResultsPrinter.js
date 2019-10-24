@@ -63,7 +63,7 @@ function displayParksHTML (parkName, parkAddress) {
 
   parkResultsContainer.appendChild(parkDivEl)
 
-  parkSaveButton.addEventListener("click", () => document.querySelector("#parkSaved").innerHTML = `PARK NAME: ${parkName}` )
+  parkSaveButton.addEventListener("click", () => document.querySelector("#parkSaved").innerHTML = `<h4>Park:</h4> ${parkName}` )
   }
 
 
@@ -136,7 +136,7 @@ const displayRestHTML = restaurantArray => {
     searchResult.appendChild(saveButton)
     searchResultsSection.appendChild(searchResult)
     //this is an event listener for the save button that will take the information and attach it to the DOM at #restSaved
-    saveButton.addEventListener('click', event => document.querySelector('#restSaved').innerHTML = `<h4>Restaurants:</h4>${restaurant.restaurant.name} at ${restaurant.restaurant.location.address} and you can call ${restaurant.restaurant.phone_numbers} for more information or reservation.</div>`)
+    saveButton.addEventListener('click', event => document.querySelector('#restSaved').innerHTML = `<h4>Restaurant:</h4>${restaurant.restaurant.name} at ${restaurant.restaurant.location.address} and you can call ${restaurant.restaurant.phone_numbers} for more information or reservation.</div>`)
     counter ++
   })
 }

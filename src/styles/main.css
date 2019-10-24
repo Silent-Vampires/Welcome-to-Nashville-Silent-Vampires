@@ -2,8 +2,10 @@ body {
     font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
+    text-align: center;
     align-items: center;
     background-image: url("https://s3.amazonaws.com/freeman-craft/locations/United-States/Nashville_Main.jpg");
+    background-attachment: fixed;
 }
 
 #searchForm {
@@ -38,9 +40,12 @@ section {
     padding:10px;
     border-radius: 22px;
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+    width:400px;
 }
 
 .itineraryForm {
+    display: flex;
+    flex-direction: column;
     border: 5px solid white;
     margin: 5px;
     padding: 10px;
@@ -52,9 +57,14 @@ section {
     animation-duration: 3s;
     animation-name: color_change;
 	animation-iteration-count: infinite;
-	animation-direction: alternate;
+    animation-direction: alternate;
+    text-align: center;
+    width: 400px;
 }
 
+.itineraryHeader {
+    text-align: center;
+}
 .itineraryForm:hover {
     transform: scale(1.3);
 }
