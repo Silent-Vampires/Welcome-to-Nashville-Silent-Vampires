@@ -45,7 +45,7 @@ function displayParksHTML (parkName, parkAddress) {
   parkResultsContainer = document.querySelector("#resultsForm")
 
   const parkDivEl = document.createElement("div")
-  const parkNameEl = document.createElement("h4")
+  const parkNameEl = document.createElement("h3")
   const parkAddressEL = document.createElement("p")
   const parkSaveButton = document.createElement("button")
 
@@ -63,7 +63,7 @@ function displayParksHTML (parkName, parkAddress) {
 
   parkResultsContainer.appendChild(parkDivEl)
 
-  parkSaveButton.addEventListener("click", () => document.querySelector("#parkSaved").innerHTML = `<h4>Park:</h4> ${parkName}` )
+  parkSaveButton.addEventListener("click", () => document.querySelector("#parkSaved").innerHTML = `<h3>Park:</h3> ${parkName}` )
   }
 
 
@@ -74,7 +74,7 @@ function displayParksHTML (parkName, parkAddress) {
 //   console.log(restaurant.restaurant.name)
 //   return `
 // <article>
-//   <h4>${restaurant.restaurant.name}</h4>
+//   <h3>${restaurant.restaurant.name}</h3>
 //   <p>
 //       <a href="${restaurant.restaurant.url}">Click here to see the restaurant</a>
 
@@ -115,7 +115,7 @@ const displayRestHTML = restaurantArray => {
 
     //these lines create the structure of the return, by creating and element(title, address, phone, save) then give them a HTML element
     const searchResult = document.createElement('div')
-    const titleElement = document.createElement('h4')
+    const titleElement = document.createElement('h3')
     const addressElement = document.createElement('p')
     const phoneElement = document.createElement('p')
     const saveButton = document.createElement('button')
@@ -136,7 +136,7 @@ const displayRestHTML = restaurantArray => {
     searchResult.appendChild(saveButton)
     searchResultsSection.appendChild(searchResult)
     //this is an event listener for the save button that will take the information and attach it to the DOM at #restSaved
-    saveButton.addEventListener('click', event => document.querySelector('#restSaved').innerHTML = `<h4>Restaurant:</h4>${restaurant.restaurant.name} at ${restaurant.restaurant.location.address} and you can call ${restaurant.restaurant.phone_numbers} for more information or reservation.</div>`)
+    saveButton.addEventListener('click', event => document.querySelector('#restSaved').innerHTML = `<h3>Restaurant:</h3>${restaurant.restaurant.name} at ${restaurant.restaurant.location.address} and you can call ${restaurant.restaurant.phone_numbers} for more information or reservation.</div>`)
     counter ++
   })
 }
@@ -153,7 +153,7 @@ const displayRestHTML = restaurantArray => {
 // `
 // <article id="concertResult--${count}">
 // const buildConcertsHtml = (concertsDisplay, count) =>
-// <h4>${concertsDisplay.name}</h4>
+// <h3>${concertsDisplay.name}</h3>
 //   <p> Date: ${concertsDisplay.dates.start.localDate}</p>
 //   <p>Venue: ${concertsDisplay._embedded.venues[0].name}
 // </article>
@@ -174,7 +174,7 @@ const displayConcertsHTML = allConcertsDisplay => {
     
     
     const searchResult = document.createElement("div")
-    const titleElement = document.createElement("h4")
+    const titleElement = document.createElement("h3")
     const dateElement = document.createElement("p")
     const venueElement = document.createElement("p")
     const saveButton = document.createElement("button")
@@ -192,7 +192,7 @@ const displayConcertsHTML = allConcertsDisplay => {
     searchResult.appendChild(saveButton)
     searchResultsSection.appendChild(searchResult)
     
-    saveButton.addEventListener("click", () => document.querySelector("#concertSaved").innerHTML = `<h4>Concert:</h4> ${concertsDisplay.name} at ${concertsDisplay._embedded.venues[0].name} on ${concertsDisplay.dates.start.localDate}</div>`)
+    saveButton.addEventListener("click", () => document.querySelector("#concertSaved").innerHTML = `<h3>Concert:</h3> ${concertsDisplay.name} at ${concertsDisplay._embedded.venues[0].name} on ${concertsDisplay.dates.start.localDate}</div>`)
     counter++
 
   })
@@ -207,7 +207,7 @@ const buildMeetupHtml = (meetup, number) => {
 
   // creating the tags for a single meetup
   const meetupContainer = document.createElement("article")
-  const meetupTitle = document.createElement("h4")
+  const meetupTitle = document.createElement("h3")
   const websiteParagraph = document.createElement("p")
   const websiteAnchor = document.createElement("a")
   const saveButton = document.createElement("button")
@@ -239,12 +239,12 @@ const buildMeetupHtml = (meetup, number) => {
     // editing this
     // meetupItinerary.innerHTML = ""  // clearing the current meetupItinerary
     meetupItinerary.innerHTML = `
-    <h4>Meetup:</h4>
+    <h3>Meetup:</h3>
     <div>${meetup.name.text}. Details at the website below.</div>
     <a href="${meetup.url}" target="_blank">${websiteAnchor}</a>
     `
 
-    // const meetupLabel = document.createElement("h4")
+    // const meetupLabel = document.createElement("h3")
     // meetupLabel.textContent = "Meetup:"
 
     // //cloning nodes from results to go in itinerary
